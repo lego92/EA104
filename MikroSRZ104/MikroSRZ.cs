@@ -358,7 +358,7 @@ namespace MikroSRZ104
             }
         }
 
-        public void Subscribe(Form4 f)
+        public void Subscribe(SensorsTableForm f)
         {
             for (int i = 0; i < Sensors.Length; i++)
             {

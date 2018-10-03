@@ -1,6 +1,6 @@
 ﻿namespace MikroSRZ104
 {
-    partial class Form4
+    partial class SensorsTableForm
     {
         /// <summary>
         /// Required designer variable.

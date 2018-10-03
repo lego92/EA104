@@ -11,9 +11,9 @@ using MfgControl.AdvancedHMI.Controls;
 namespace MikroSRZ104
 {
     
-    public partial class Form4 : Form
+    public partial class SensorsTableForm : Form
     {
-        public Form4(Sensor[] sensors)
+        public SensorsTableForm(Sensor[] sensors)
         {
             InitializeComponent();
 

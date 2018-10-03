@@ -32,20 +32,20 @@ namespace MikroSRZ104
 
 
 
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         //         
         MiniPageMikroSRZ[] miniPagesArray;
         //
         MikroSRZ[] mikroSRZArray;
         //
-        Form4[] sensorTableFormsArray;
+        SensorsTableForm[] sensorTableFormsArray;
         //
         Thread workerThread = null;
         //
         ConfigFilesForm configform;
 
-        public Form1()
+        public MainForm()
         {
             if (!File.Exists("MikroSRZ104Config.ea"))
             {
@@ -74,7 +74,7 @@ namespace MikroSRZ104
 
             mikroSRZArray = new MikroSRZ[devicesCount];
             miniPagesArray = new MiniPageMikroSRZ[devicesCount];
-            sensorTableFormsArray = new Form4[devicesCount];
+            sensorTableFormsArray = new SensorsTableForm[devicesCount];
 
             int i = 0;
 
@@ -157,7 +157,7 @@ namespace MikroSRZ104
 
             for (int k = 0; k < mikroSRZArray.Length; k++)
             {
-                sensorTableFormsArray[k] = new Form4(mikroSRZArray[k].Sensors);
+                sensorTableFormsArray[k] = new SensorsTableForm(mikroSRZArray[k].Sensors);
                 mikroSRZArray[k].Subscribe(sensorTableFormsArray[k]);
                 miniPagesArray[k] = new MiniPageMikroSRZ(sensorTableFormsArray[k], new Point(locationX, 0));
                 this.Controls.Add(miniPagesArray[k]);

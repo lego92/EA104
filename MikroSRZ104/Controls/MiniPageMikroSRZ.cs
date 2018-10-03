@@ -16,8 +16,8 @@ namespace MikroSRZ104
 {
     public partial class MiniPageMikroSRZ : UserControl
     {
-        Form4 ff;
-        public MiniPageMikroSRZ(Form4 f, Point location)
+        SensorsTableForm ff;
+        public MiniPageMikroSRZ(SensorsTableForm f, Point location)
         {
 
             InitializeComponent();
