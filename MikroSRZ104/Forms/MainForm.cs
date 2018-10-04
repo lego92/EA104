@@ -47,151 +47,157 @@ namespace MikroSRZ104
 
         public MainForm()
         {
-            if (!File.Exists("MikroSRZ104Config.ea"))
-            {
-                configform = new ConfigFilesForm();
 
-                configform.ShowDialog();               
-                
-            }
-            
             InitializeComponent();
 
-            // Парсим
-            string name, ipAddress, factoryNum, sensorName;
-            int sensorsCount;
-            double thresholdMinResistance, thresholdMaxResistance;
+            // Парсим            
 
-            XmlDocument config = new XmlDocument();
-
-            config.Load("MikroSRZ104Config.ea");
-
-            XmlNode rootNode = config.DocumentElement;
-
-            XmlNodeList devices = rootNode.ChildNodes;
-
-            int devicesCount = rootNode.ChildNodes.Count;
-
-            mikroSRZArray = new MikroSRZ[devicesCount];
-            miniPagesArray = new MiniPageMikroSRZ[devicesCount];
-            sensorTableFormsArray = new SensorsTableForm[devicesCount];
-
-            int i = 0;
-
-            foreach (XmlNode device in rootNode.ChildNodes)
+            if (File.Exists("MikroSRZ104Config.ea"))
             {
-                name = "Имя";
-                ipAddress = "IP";
-                factoryNum = "00-000000";
-                sensorName = "Имя";
-                thresholdMinResistance = 20;
-                thresholdMaxResistance = 200;
+                string name, ipAddress, factoryNum, sensorName;
+                int sensorsCount;
+                double thresholdMinResistance, thresholdMaxResistance;
 
-                sensorsCount = 0;
+                XmlDocument config = new XmlDocument();
+                config.Load("MikroSRZ104Config.ea");
 
-                foreach (XmlNode fieldOfDevice in device.ChildNodes)
+                XmlNode rootNode = config.DocumentElement;
+
+                XmlNodeList devices = rootNode.ChildNodes;
+
+                int devicesCount = rootNode.ChildNodes.Count;
+
+                mikroSRZArray = new MikroSRZ[devicesCount];
+                miniPagesArray = new MiniPageMikroSRZ[devicesCount];
+                sensorTableFormsArray = new SensorsTableForm[devicesCount];
+
+                int i = 0;
+
+                foreach (XmlNode device in rootNode.ChildNodes)
                 {
-                    switch (fieldOfDevice.Name)
+                    name = "Имя";
+                    ipAddress = "IP";
+                    factoryNum = "00-000000";
+                    sensorName = "Имя";
+                    thresholdMinResistance = 20;
+                    thresholdMaxResistance = 200;
+
+                    sensorsCount = 0;
+
+                    foreach (XmlNode fieldOfDevice in device.ChildNodes)
                     {
-                        case "NAME":
-                            name = fieldOfDevice.InnerText;
-                            break;
-                        case "IP":
-                            ipAddress = fieldOfDevice.InnerText;
-                            break;
-                        case "ISA":
-                            sensorsCount++;
-                            break;
-                    }                   
+                        switch (fieldOfDevice.Name)
+                        {
+                            case "NAME":
+                                name = fieldOfDevice.InnerText;
+                                break;
+                            case "IP":
+                                ipAddress = fieldOfDevice.InnerText;
+                                break;
+                            case "ISA":
+                                sensorsCount++;
+                                break;
+                        }
 
-                }
-
-                mikroSRZArray[i] = new MikroSRZ(name, ipAddress, sensorsCount);
-
-                int j = 0;
-
-                foreach (XmlNode fieldOfDevice in device.ChildNodes)
-                {
-                    switch (fieldOfDevice.Name)
-                    {
-                        case "MIN_THRESHOLD_RES":
-                            thresholdMinResistance = Convert.ToDouble(fieldOfDevice.InnerText);
-                            break;
-
-                        case "MAX_THRESHOLD_RES":
-                            thresholdMaxResistance = Convert.ToDouble(fieldOfDevice.InnerText);
-                            break;
-
-                        case "ISA":
-                            foreach (XmlNode item in fieldOfDevice.ChildNodes)
-                            {
-                                switch (item.Name)
-                                {
-                                    case "FACTORY_NUM":
-                                        factoryNum = item.InnerText;
-                                        break;
-
-                                    case "NAME":
-                                        sensorName = item.InnerText;
-                                        break;
-
-                                }
-                            }
-                            mikroSRZArray[i].CreateSensor(j, factoryNum, sensorName, thresholdMinResistance, thresholdMaxResistance);
-                            j++;
-                            break;
                     }
 
+                    mikroSRZArray[i] = new MikroSRZ(name, ipAddress, sensorsCount);
+
+                    int j = 0;
+
+                    foreach (XmlNode fieldOfDevice in device.ChildNodes)
+                    {
+                        switch (fieldOfDevice.Name)
+                        {
+                            case "MIN_THRESHOLD_RES":
+                                thresholdMinResistance = Convert.ToDouble(fieldOfDevice.InnerText);
+                                break;
+
+                            case "MAX_THRESHOLD_RES":
+                                thresholdMaxResistance = Convert.ToDouble(fieldOfDevice.InnerText);
+                                break;
+
+                            case "ISA":
+                                foreach (XmlNode item in fieldOfDevice.ChildNodes)
+                                {
+                                    switch (item.Name)
+                                    {
+                                        case "FACTORY_NUM":
+                                            factoryNum = item.InnerText;
+                                            break;
+
+                                        case "NAME":
+                                            sensorName = item.InnerText;
+                                            break;
+
+                                    }
+                                }
+                                mikroSRZArray[i].CreateSensor(j, factoryNum, sensorName, thresholdMinResistance, thresholdMaxResistance);
+                                j++;
+                                break;
+                        }
+
+                    }
+
+                    i++;
+
                 }
 
-                i++;
 
+
+
+
+
+                int locationX = 0;
+
+                for (int k = 0; k < mikroSRZArray.Length; k++)
+                {
+                    sensorTableFormsArray[k] = new SensorsTableForm(mikroSRZArray[k].Sensors);
+                    mikroSRZArray[k].Subscribe(sensorTableFormsArray[k]);
+                    miniPagesArray[k] = new MiniPageMikroSRZ(sensorTableFormsArray[k], new Point(locationX, 0));
+                    this.Controls.Add(miniPagesArray[k]);
+                    locationX += miniPagesArray[k].Size.Width;
+
+                    mikroSRZArray[k].StatusChanged += miniPagesArray[k].StatusChanger;
+                    mikroSRZArray[k].Changed += miniPagesArray[k].Method;
+
+                }
+
+
+                //workerThread = new Thread(ConnectCycle);
+                //workerThread.Start();
             }
-
-
-
-
-
-
-            int locationX = 0;
-
-            for (int k = 0; k < mikroSRZArray.Length; k++)
+            else
             {
-                sensorTableFormsArray[k] = new SensorsTableForm(mikroSRZArray[k].Sensors);
-                mikroSRZArray[k].Subscribe(sensorTableFormsArray[k]);
-                miniPagesArray[k] = new MiniPageMikroSRZ(sensorTableFormsArray[k], new Point(locationX, 0));
-                this.Controls.Add(miniPagesArray[k]);
-                locationX += miniPagesArray[k].Size.Width;
-
-                mikroSRZArray[k].StatusChanged += miniPagesArray[k].StatusChanger;
-                mikroSRZArray[k].Changed += miniPagesArray[k].Method;
 
             }
 
-
-            workerThread = new Thread(ConnectCycle);
-            workerThread.Start();
 
         }        
 
         public void ConnectCycle()
         {
-            while (true)
-            {
-                foreach (var item in mikroSRZArray)
-                {
-                    if (!item.ConnectionStatus)
-                    {
-                        item.Connect();
-                    }
-                }
+            //while (true)
+            //{
+            //    foreach (var item in mikroSRZArray)
+            //    {
+            //        if (!item.ConnectionStatus)
+            //        {
+            //            item.Connect();
+            //        }
+            //    }
 
-                Thread.Sleep(5000);
-            }
+            //    Thread.Sleep(5000);
+            //}
 
         }
 
         private void btnExitApp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
 
         }

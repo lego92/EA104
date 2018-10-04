@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MikroSRZ104
 {
@@ -14,8 +15,20 @@ namespace MikroSRZ104
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.SetCompatibleTextRenderingDefault(false);           
+            if (!File.Exists("MikroSRZ104Config.ea"))
+            {
+                Application.Run(new ConfigFilesForm());
+                                
+                if (File.Exists("MikroSRZ104Config.ea"))
+                {
+                    Application.Run(new MainForm());
+                }
+            }
+            else
+            {
+                Application.Run(new MainForm());
+            }
         }
     }
 }

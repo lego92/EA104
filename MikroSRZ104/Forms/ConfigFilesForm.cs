@@ -33,19 +33,16 @@ namespace MikroSRZ104
             }
         }
 
-        String[] deviceNames = new String[4];
-
-        
+        String[] deviceNames = new String[4];        
 
         List<double> minThreshold = new List<double>();
 
         List<double> maxThreshold = new List<double>();
 
+
         public ConfigFilesForm()
         {
-            InitializeComponent();
-
-            
+            InitializeComponent();            
         }
 
         private void btnAddConfigFile_Click(object sender, EventArgs e)
@@ -259,6 +256,12 @@ namespace MikroSRZ104
         private void btnBackToTab2_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 1;
+        }
+
+        private void ConfigFilesForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Application.Exit();
+            Dispose();
         }
     }
 }
