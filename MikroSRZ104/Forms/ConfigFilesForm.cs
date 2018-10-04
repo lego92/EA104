@@ -13,27 +13,13 @@ namespace MikroSRZ104
 {
     public partial class ConfigFilesForm : Form
     {
+        int currentSelectedTab = 0;
+
         List<String> filePathes = new List<String>();        
 
-        public List<String> FilePathes
-        {
-            get
-            {
-                return filePathes;
-            }
-        }
+        List<String> fileNames = new List<String>();        
 
-        List<String> fileNames = new List<String>();
-
-        public List<String> FileNames
-        {
-            get
-            {
-                return fileNames;
-            }
-        }
-
-        String[] deviceNames = new String[4];        
+        String[] deviceNames = new String[4];
 
         List<double> minThreshold = new List<double>();
 
@@ -42,7 +28,7 @@ namespace MikroSRZ104
 
         public ConfigFilesForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private void btnAddConfigFile_Click(object sender, EventArgs e)
@@ -51,48 +37,52 @@ namespace MikroSRZ104
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                FilePathes.Add(openFileDialog1.FileName);
-                listBox1.Items.Add(Path.GetFileNameWithoutExtension(openFileDialog1.FileName));
+                filePathes.Add(openFileDialog1.FileName);
+                lstbxFilesNames.Items.Add(Path.GetFileNameWithoutExtension(openFileDialog1.FileName));
             }
         }
 
         private void btnDeleteConfigFile_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != -1)
+            if (lstbxFilesNames.SelectedIndex != -1)
             {
-                FilePathes.RemoveAt(listBox1.SelectedIndex);
-                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+                filePathes.RemoveAt(lstbxFilesNames.SelectedIndex);
+                lstbxFilesNames.Items.RemoveAt(lstbxFilesNames.SelectedIndex);
             }
         }
 
         private void btnNextToTab2_Click(object sender, EventArgs e)
         {
-            if (listBox1.Items.Count != 4)
+            if (lstbxFilesNames.Items.Count != 4)
             {
                 MessageBox.Show("Число файлов конфигурации должно равняться 4");
             }
             else
             {
+
+
                 fileNames.Clear();
-                         
-                foreach (var item in listBox1.Items)
+
+                foreach (var item in lstbxFilesNames.Items)
                 {
-                    fileNames.Add(item.ToString());                  
+                    fileNames.Add(item.ToString());
                 }
 
-                
 
 
-                label16.Text = fileNames[0];
-                label17.Text = fileNames[1];
-                label18.Text = fileNames[2];
-                label19.Text = fileNames[3];
 
-                tabControl1.SelectedIndex = 1;
+                lblFirstDeviceName.Text = fileNames[0];
+                lblSecondDeviceName.Text = fileNames[1];
+                lblThirdDeviceName.Text = fileNames[2];
+                lblFourthDeviceName.Text = fileNames[3];
+
+                currentSelectedTab = 1;
+                tabControlConfig.SelectedIndex = 1;
+
 
             }
 
-           
+
         }
 
         private void AppendXML(string filename, XmlNodeList list, String mikroSRZfilename, double minthreshold, double maxthreshold)
@@ -104,7 +94,7 @@ namespace MikroSRZ104
                 XmlNode temp = xml.ImportNode(item, true);
                 XmlNode nameNode = xml.CreateNode(XmlNodeType.Element, "NAME", null);
                 nameNode.InnerText = mikroSRZfilename;
-                temp.PrependChild(nameNode);                
+                temp.PrependChild(nameNode);
                 foreach (XmlNode tempnode in temp)
                 {
                     if (tempnode.Name == "ISA")
@@ -121,11 +111,11 @@ namespace MikroSRZ104
                     }
                 }
 
-                xml.DocumentElement.AppendChild(temp);               
+                xml.DocumentElement.AppendChild(temp);
 
             }
-            
-            xml.Save(filename);                        
+
+            xml.Save(filename);
         }
 
         private void ConcatFunction(List<String> files, List<String> filenames, List<double> minthreshold, List<double> maxthreshold)
@@ -139,57 +129,62 @@ namespace MikroSRZ104
                 AppendXML("MikroSRZ104Config.ea", xml.DocumentElement.SelectNodes("/configuration"), filenames[k], minthreshold[k], maxthreshold[k]);
                 k++;
             }
-        }        
+        }
 
         private void btnNextToTab3_Click(object sender, EventArgs e)
         {
-            if (textBox9.Text != "")
+            if (txtbxFirstDeviceName.Text != "")
             {
-                deviceNames[0] = textBox9.Text;
+                deviceNames[0] = txtbxFirstDeviceName.Text;
             }
             else
             {
                 deviceNames[0] = fileNames[0];
             }
 
-            if (textBox10.Text != "")
+            if (txtbxSecondDeviceName.Text != "")
             {
-                deviceNames[1] = textBox10.Text;
+                deviceNames[1] = txtbxSecondDeviceName.Text;
             }
             else
             {
                 deviceNames[1] = fileNames[1];
             }
 
-            if (textBox11.Text != "")
+            if (txtbxThirdDeviceName.Text != "")
             {
-                deviceNames[2] = textBox11.Text;
+                deviceNames[2] = txtbxThirdDeviceName.Text;
             }
             else
             {
                 deviceNames[2] = fileNames[2];
             }
 
-            if (textBox12.Text != "")
+            if (txtbxFourthDeviceName.Text != "")
             {
-                deviceNames[3] = textBox12.Text;
+                deviceNames[3] = txtbxFourthDeviceName.Text;
             }
             else
             {
                 deviceNames[3] = fileNames[3];
             }
 
-            label3.Text = "Уставки для датчиков МикроСРЗ с именем  " + deviceNames[0];
-            label8.Text = "Уставки для датчиков МикроСРЗ с именем  " + deviceNames[1];
-            label11.Text = "Уставки для датчиков МикроСРЗ с именем  " + deviceNames[2];
-            label14.Text = "Уставки для датчиков МикроСРЗ с именем  " + deviceNames[3];
+            label3.Text = "Уставки для датчиков " + deviceNames[0];
+            label8.Text = "Уставки для датчиков " + deviceNames[1];
+            label11.Text = "Уставки для датчиков " + deviceNames[2];
+            label14.Text = "Уставки для датчиков " + deviceNames[3];
 
-            tabControl1.SelectedIndex = 2;
+            currentSelectedTab = 2;
+            tabControlConfig.SelectedIndex = 2;
+
+
         }
 
         private void btnBackToTab1_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 0;
+            currentSelectedTab = 0;
+            tabControlConfig.SelectedIndex = 0;
+
         }
 
         private void btnFinishConfig_Click(object sender, EventArgs e)
@@ -243,7 +238,7 @@ namespace MikroSRZ104
                 {
                     if (parameter.Name == "NAME")
                     {
-                        parameter.InnerText = deviceNames[y];                        
+                        parameter.InnerText = deviceNames[y];
                     }
                 }
 
@@ -255,13 +250,17 @@ namespace MikroSRZ104
 
         private void btnBackToTab2_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 1;
+            currentSelectedTab = 1;
+            tabControlConfig.SelectedIndex = 1;
+
         }
 
-        private void ConfigFilesForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void tabControlConfig_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            //Application.Exit();
-            Dispose();
+            if (currentSelectedTab != tabControlConfig.SelectedIndex)
+            {
+                tabControlConfig.SelectTab(currentSelectedTab);
+            }
         }
     }
 }

@@ -164,8 +164,8 @@ namespace MikroSRZ104
                 }
 
 
-                //workerThread = new Thread(ConnectCycle);
-                //workerThread.Start();
+                workerThread = new Thread(ConnectCycle);
+                workerThread.Start();
             }
             else
             {
@@ -177,18 +177,18 @@ namespace MikroSRZ104
 
         public void ConnectCycle()
         {
-            //while (true)
-            //{
-            //    foreach (var item in mikroSRZArray)
-            //    {
-            //        if (!item.ConnectionStatus)
-            //        {
-            //            item.Connect();
-            //        }
-            //    }
+            while (true)
+            {
+                foreach (var item in mikroSRZArray)
+                {
+                    if (!item.ConnectionStatus)
+                    {
+                        item.Connect();
+                    }
+                }
 
-            //    Thread.Sleep(5000);
-            //}
+                Thread.Sleep(5000);
+            }
 
         }
 
@@ -197,9 +197,6 @@ namespace MikroSRZ104
 
         }
 
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
+        
     }
 }

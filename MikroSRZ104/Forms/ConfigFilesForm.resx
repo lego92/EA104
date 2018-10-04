@@ -123,10 +123,13 @@
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>186, 17</value>
   </metadata>
-  <data name="label15.Text" xml:space="preserve">
-    <value>Задайте наименование устройств, которое будет отображаться
-на экране мониторинга.
-Названия задаются в соответствие с указанными файлами конфигурации.
+  <metadata name="tabPageConfig.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="lblInfoNamesPage1.Text" xml:space="preserve">
+    <value>Задайте наименование устройств, которые будут отображаться
+на главном экране мониторинга.
+Названия задаются в соответствие с файлами конфигурации.
 По умолчанию в качестве наименования выступает название 
 файла конфигурации, если хотите его оставить - оставьте поле 
 незаполненым.</value>
