@@ -42,8 +42,6 @@ namespace MikroSRZ104
         SensorsTableForm[] sensorTableFormsArray;
         //
         Thread workerThread = null;
-        //
-        ConfigFilesForm configform;
 
         public MainForm()
         {

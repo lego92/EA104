@@ -15,16 +15,19 @@ namespace MikroSRZ104
     {
         int currentSelectedTab = 0;
 
-        List<String> filePathes = new List<String>();        
+        List<String> filePathes = new List<String>();
 
-        List<String> fileNames = new List<String>();        
+        List<String> fileNames = new List<String>();
 
         String[] deviceNames = new String[4];
+
+        double[] currentMinRes = new double[] { 20, 20, 20, 20 };
+
+        double[] currentMaxRes = new double[] { 200, 200, 200, 200 };
 
         List<double> minThreshold = new List<double>();
 
         List<double> maxThreshold = new List<double>();
-
 
         public ConfigFilesForm()
         {
@@ -33,12 +36,19 @@ namespace MikroSRZ104
 
         private void btnAddConfigFile_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Файл конфигурации МикроСРЗ (.ea)| *.ea";
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (filePathes.Count < 4)
             {
-                filePathes.Add(openFileDialog1.FileName);
-                lstbxFilesNames.Items.Add(Path.GetFileNameWithoutExtension(openFileDialog1.FileName));
+                openFileDialog1.Filter = "Файл конфигурации МикроСРЗ (.ea)| *.ea";
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    filePathes.Add(openFileDialog1.FileName);
+                    lstbxFilesNames.Items.Add(Path.GetFileNameWithoutExtension(openFileDialog1.FileName));
+                }
+            }
+            else
+            {
+                MessageBox.Show("Число файлов конфигурации должно равняться 4", "Ошибка");
             }
         }
 
@@ -50,26 +60,68 @@ namespace MikroSRZ104
                 lstbxFilesNames.Items.RemoveAt(lstbxFilesNames.SelectedIndex);
             }
         }
+        private void AppendXML(string fileName, XmlNodeList list, String mikroSRZFileName, double minThreshold,
+                                                                                               double maxThreshold)
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(fileName);
+            foreach (XmlNode item in list)
+            {
+                XmlNode temp = xml.ImportNode(item, true);
+                XmlNode nameNode = xml.CreateNode(XmlNodeType.Element, "NAME", null);
+                nameNode.InnerText = mikroSRZFileName;
+                temp.PrependChild(nameNode);
+                foreach (XmlNode tempnode in temp)
+                {
+                    if (tempnode.Name == "ISA")
+                    {
+                        XmlNode minThresholdNode = xml.CreateNode(XmlNodeType.Element, "MIN_THRESHOLD_RES", null);
+                        minThresholdNode.InnerText = Convert.ToString(minThreshold);
+                        temp.InsertBefore(minThresholdNode, tempnode);
+
+                        XmlNode maxThresholdNode = xml.CreateNode(XmlNodeType.Element, "MAX_THRESHOLD_RES", null);
+                        maxThresholdNode.InnerText = Convert.ToString(maxThreshold);
+                        temp.InsertBefore(maxThresholdNode, tempnode);
+
+                        break;
+                    }
+                }
+
+                xml.DocumentElement.AppendChild(temp);
+            }
+
+            xml.Save(fileName);
+        }
+
+        private void ConcatFunction(List<String> files, List<String> fileNames,
+                                             double[] currentMinRes, double[] currentMaxRes)
+        {
+            int k = 0;
+
+            foreach (String file in files)
+            {
+                XmlDocument xml = new XmlDocument();
+                xml.Load(file);
+                AppendXML("MikroSRZ104Config.ea", xml.DocumentElement.SelectNodes("/configuration"), fileNames[k],
+                                                                                    currentMinRes[k], currentMaxRes[k]);
+                k++;
+            }
+        }
 
         private void btnNextToTab2_Click(object sender, EventArgs e)
         {
             if (lstbxFilesNames.Items.Count != 4)
             {
-                MessageBox.Show("Число файлов конфигурации должно равняться 4");
+                MessageBox.Show("Число файлов конфигурации должно равняться 4", "Ошибка");
             }
             else
             {
-
-
                 fileNames.Clear();
 
                 foreach (var item in lstbxFilesNames.Items)
                 {
                     fileNames.Add(item.ToString());
                 }
-
-
-
 
                 lblFirstDeviceName.Text = fileNames[0];
                 lblSecondDeviceName.Text = fileNames[1];
@@ -78,58 +130,9 @@ namespace MikroSRZ104
 
                 currentSelectedTab = 1;
                 tabControlConfig.SelectedIndex = 1;
-
-
-            }
-
-
-        }
-
-        private void AppendXML(string filename, XmlNodeList list, String mikroSRZfilename, double minthreshold, double maxthreshold)
-        {
-            XmlDocument xml = new XmlDocument();
-            xml.Load(filename);
-            foreach (XmlNode item in list)
-            {
-                XmlNode temp = xml.ImportNode(item, true);
-                XmlNode nameNode = xml.CreateNode(XmlNodeType.Element, "NAME", null);
-                nameNode.InnerText = mikroSRZfilename;
-                temp.PrependChild(nameNode);
-                foreach (XmlNode tempnode in temp)
-                {
-                    if (tempnode.Name == "ISA")
-                    {
-                        XmlNode minThresholdNode = xml.CreateNode(XmlNodeType.Element, "MIN_THRESHOLD_RES", null);
-                        minThresholdNode.InnerText = Convert.ToString(minthreshold);
-                        temp.InsertBefore(minThresholdNode, tempnode);
-
-                        XmlNode maxThresholdNode = xml.CreateNode(XmlNodeType.Element, "MAX_THRESHOLD_RES", null);
-                        maxThresholdNode.InnerText = Convert.ToString(maxthreshold);
-                        temp.InsertBefore(maxThresholdNode, tempnode);
-
-                        break;
-                    }
-                }
-
-                xml.DocumentElement.AppendChild(temp);
-
-            }
-
-            xml.Save(filename);
-        }
-
-        private void ConcatFunction(List<String> files, List<String> filenames, List<double> minthreshold, List<double> maxthreshold)
-        {
-            int k = 0;
-
-            foreach (String file in files)
-            {
-                XmlDocument xml = new XmlDocument();
-                xml.Load(file);
-                AppendXML("MikroSRZ104Config.ea", xml.DocumentElement.SelectNodes("/configuration"), filenames[k], minthreshold[k], maxthreshold[k]);
-                k++;
             }
         }
+
 
         private void btnNextToTab3_Click(object sender, EventArgs e)
         {
@@ -169,14 +172,13 @@ namespace MikroSRZ104
                 deviceNames[3] = fileNames[3];
             }
 
-            label3.Text = "Уставки для датчиков " + deviceNames[0];
-            label8.Text = "Уставки для датчиков " + deviceNames[1];
-            label11.Text = "Уставки для датчиков " + deviceNames[2];
-            label14.Text = "Уставки для датчиков " + deviceNames[3];
+            lblInfoForFirstDevice.Text = "Уставки для датчиков " + deviceNames[0];
+            lblInfoForSecondDevice.Text = "Уставки для датчиков " + deviceNames[1];
+            lblInfoForThirdDevice.Text = "Уставки для датчиков " + deviceNames[2];
+            lblInfoForFourthDevice.Text = "Уставки для датчиков " + deviceNames[3];
 
             currentSelectedTab = 2;
             tabControlConfig.SelectedIndex = 2;
-
 
         }
 
@@ -184,22 +186,11 @@ namespace MikroSRZ104
         {
             currentSelectedTab = 0;
             tabControlConfig.SelectedIndex = 0;
-
         }
 
         private void btnFinishConfig_Click(object sender, EventArgs e)
         {
-            minThreshold.Add(Convert.ToDouble((textBox1.Text)));
-            minThreshold.Add(Convert.ToDouble((textBox3.Text)));
-            minThreshold.Add(Convert.ToDouble((textBox5.Text)));
-            minThreshold.Add(Convert.ToDouble((textBox7.Text)));
 
-            maxThreshold.Add(Convert.ToDouble((textBox2.Text)));
-            maxThreshold.Add(Convert.ToDouble((textBox4.Text)));
-            maxThreshold.Add(Convert.ToDouble((textBox6.Text)));
-            maxThreshold.Add(Convert.ToDouble((textBox8.Text)));
-
-            //
             XmlTextWriter xmlwr = new XmlTextWriter("MikroSRZ104Config.ea", null);
 
             xmlwr.Formatting = Formatting.Indented;
@@ -216,7 +207,7 @@ namespace MikroSRZ104
 
             xmlwr.Close();
             //
-            ConcatFunction(filePathes, fileNames, minThreshold, maxThreshold);
+            ConcatFunction(filePathes, fileNames, currentMinRes, currentMaxRes);
             //
 
             XmlDocument xml = new XmlDocument();
@@ -261,6 +252,165 @@ namespace MikroSRZ104
             {
                 tabControlConfig.SelectTab(currentSelectedTab);
             }
+        }
+
+        private void AcceptMinResThreshold(TextBox textbox, int index)
+        {
+            lblInfoForFirstDevice.Focus();
+            double result;
+            bool isParsed = Double.TryParse(textbox.Text, out result);
+            if (!isParsed)
+            {
+                textbox.Text = currentMinRes[index].ToString();
+            }
+            else
+            {
+                if (result >= currentMaxRes[index])
+                {
+                    MessageBox.Show("Минимальная уставка не может быть больше или равна максимальной!");
+                    textbox.Text = currentMinRes[index].ToString();
+                }
+                else
+                {
+                    currentMinRes[index] = result;
+                }
+            }
+        }
+
+        private void AcceptMaxResThreshold(TextBox textbox, int index)
+        {
+            lblInfoForFirstDevice.Focus();
+            double result;
+            bool isParsed = Double.TryParse(textbox.Text, out result);
+            if (!isParsed)
+            {
+                textbox.Text = currentMaxRes[index].ToString();
+            }
+            else
+            {
+                if (result <= currentMinRes[index])
+                {
+                    MessageBox.Show("Максимальная уставка не может быть меньше или равна минимальной!");
+                    textbox.Text = currentMaxRes[index].ToString();
+                }
+                else
+                {
+                    currentMaxRes[index] = result;
+                }
+            }
+        }
+
+        private void KeysValidatorMin(TextBox textbox, int index, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 44 || e.KeyChar == 8 || e.KeyChar == 127)
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == 13)
+            {
+                AcceptMinResThreshold(textbox, index);
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void KeysValidatorMax(TextBox textbox, int index, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 44 || e.KeyChar == 8 || e.KeyChar == 127)
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == 13)
+            {
+                AcceptMaxResThreshold(textbox, index);
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtbxFirstDevSensorMinRes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            KeysValidatorMin(txtbxFirstDevSensorMinRes, 0, e);
+        }
+
+        private void txtbxFirstDevSensorMinRes_Validating(object sender, CancelEventArgs e)
+        {
+            AcceptMinResThreshold(txtbxFirstDevSensorMinRes, 0);
+        }
+
+        private void txtbxFirstDevSensorMaxRes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            KeysValidatorMax(txtbxFirstDevSensorMaxRes, 0, e);
+        }
+
+        private void txtbxFirstDevSensorMaxRes_Validating(object sender, CancelEventArgs e)
+        {
+            AcceptMaxResThreshold(txtbxFirstDevSensorMaxRes, 0);
+        }
+
+        private void txtbxSecondDevSensorMinRes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            KeysValidatorMin(txtbxSecondDevSensorMinRes, 1, e);
+        }
+
+        private void txtbxSecondDevSensorMinRes_Validating(object sender, CancelEventArgs e)
+        {
+            AcceptMinResThreshold(txtbxSecondDevSensorMinRes, 1);
+        }
+
+        private void txtbxSecondDevSensorMaxRes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            KeysValidatorMax(txtbxSecondDevSensorMaxRes, 1, e);
+        }
+
+        private void txtbxSecondDevSensorMaxRes_Validating(object sender, CancelEventArgs e)
+        {
+            AcceptMaxResThreshold(txtbxSecondDevSensorMaxRes, 1);
+        }
+
+        private void txtbxThirdDevSensorMinRes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            KeysValidatorMin(txtbxThirdDevSensorMinRes, 2, e);
+        }
+
+        private void txtbxThirdDevSensorMinRes_Validating(object sender, CancelEventArgs e)
+        {
+            AcceptMinResThreshold(txtbxThirdDevSensorMinRes, 2);
+        }
+        private void txtbxThirdDevSensorMaxRes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            KeysValidatorMax(txtbxThirdDevSensorMaxRes, 2, e);
+        }
+
+        private void txtbxThirdDevSensorMaxRes_Validating(object sender, CancelEventArgs e)
+        {
+            AcceptMaxResThreshold(txtbxThirdDevSensorMaxRes, 2);
+        }
+
+        private void txtbxFourthDevSensorMinRes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            KeysValidatorMin(txtbxFourthDevSensorMinRes, 3, e);
+        }
+
+        private void txtbxFourthDevSensorMinRes_Validating(object sender, CancelEventArgs e)
+        {
+            AcceptMinResThreshold(txtbxFourthDevSensorMinRes, 3);
+        }
+
+        private void txtbxFourthDevSensorMaxRes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            KeysValidatorMax(txtbxFourthDevSensorMaxRes, 3, e);
+        }
+
+        private void txtbxFourthDevSensorMaxRes_Validating(object sender, CancelEventArgs e)
+        {
+            AcceptMaxResThreshold(txtbxFourthDevSensorMaxRes, 3);
         }
     }
 }

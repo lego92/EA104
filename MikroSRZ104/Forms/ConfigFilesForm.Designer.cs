@@ -37,9 +37,9 @@
             this.btnNextToTabPage2 = new System.Windows.Forms.Button();
             this.lblInfoFilesPage1 = new System.Windows.Forms.Label();
             this.tabControlConfig = new System.Windows.Forms.TabControl();
-            this.tabPageConfig = new System.Windows.Forms.TabPage();
+            this.tabPageConfigFiles = new System.Windows.Forms.TabPage();
             this.lblInfoFilesPage2 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPageNames = new System.Windows.Forms.TabPage();
             this.btnBackToTabPage1 = new System.Windows.Forms.Button();
             this.btnNextToTabPage3 = new System.Windows.Forms.Button();
             this.txtbxFourthDeviceName = new System.Windows.Forms.TextBox();
@@ -51,33 +51,33 @@
             this.txtbxFirstDeviceName = new System.Windows.Forms.TextBox();
             this.lblFirstDeviceName = new System.Windows.Forms.Label();
             this.lblInfoNamesPage1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageSensors = new System.Windows.Forms.TabPage();
             this.btnBackToTab2 = new System.Windows.Forms.Button();
             this.btnFinishConfig = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtbxFourthDevSensorMinRes = new System.Windows.Forms.TextBox();
+            this.lblFourthDevSensorMaxRes = new System.Windows.Forms.Label();
+            this.lblFourthDevSensorMinRes = new System.Windows.Forms.Label();
+            this.lblInfoForFourthDevice = new System.Windows.Forms.Label();
+            this.txtbxFourthDevSensorMaxRes = new System.Windows.Forms.TextBox();
+            this.txtbxThirdDevSensorMinRes = new System.Windows.Forms.TextBox();
+            this.lblThirdDevSensorMaxRes = new System.Windows.Forms.Label();
+            this.lblThirdDevSensorMinRes = new System.Windows.Forms.Label();
+            this.lblInfoForThirdDevice = new System.Windows.Forms.Label();
+            this.txtbxThirdDevSensorMaxRes = new System.Windows.Forms.TextBox();
+            this.txtbxSecondDevSensorMinRes = new System.Windows.Forms.TextBox();
+            this.lblSecondDevSensorMaxRes = new System.Windows.Forms.Label();
+            this.lblSecondDevSensorMinRes = new System.Windows.Forms.Label();
+            this.lblInfoForSecondDevice = new System.Windows.Forms.Label();
+            this.txtbxSecondDevSensorMaxRes = new System.Windows.Forms.TextBox();
+            this.txtbxFirstDevSensorMaxRes = new System.Windows.Forms.TextBox();
+            this.lblFirstDevSensorMaxRes = new System.Windows.Forms.Label();
+            this.lblFirstDevSensorMinRes = new System.Windows.Forms.Label();
+            this.lblInfoForFirstDevice = new System.Windows.Forms.Label();
+            this.txtbxFirstDevSensorMinRes = new System.Windows.Forms.TextBox();
             this.tabControlConfig.SuspendLayout();
-            this.tabPageConfig.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabPageConfigFiles.SuspendLayout();
+            this.tabPageNames.SuspendLayout();
+            this.tabPageSensors.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstbxFilesNames
@@ -140,9 +140,9 @@
             // 
             // tabControlConfig
             // 
-            this.tabControlConfig.Controls.Add(this.tabPageConfig);
-            this.tabControlConfig.Controls.Add(this.tabPage3);
-            this.tabControlConfig.Controls.Add(this.tabPage2);
+            this.tabControlConfig.Controls.Add(this.tabPageConfigFiles);
+            this.tabControlConfig.Controls.Add(this.tabPageNames);
+            this.tabControlConfig.Controls.Add(this.tabPageSensors);
             this.tabControlConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabControlConfig.Location = new System.Drawing.Point(-3, 1);
             this.tabControlConfig.Name = "tabControlConfig";
@@ -151,22 +151,22 @@
             this.tabControlConfig.TabIndex = 5;
             this.tabControlConfig.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControlConfig_Selecting);
             // 
-            // tabPageConfig
+            // tabPageConfigFiles
             // 
-            this.tabPageConfig.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageConfig.Controls.Add(this.lblInfoFilesPage2);
-            this.tabPageConfig.Controls.Add(this.btnNextToTabPage2);
-            this.tabPageConfig.Controls.Add(this.lblInfoFilesPage1);
-            this.tabPageConfig.Controls.Add(this.btnAddConfigFile);
-            this.tabPageConfig.Controls.Add(this.lstbxFilesNames);
-            this.tabPageConfig.Controls.Add(this.btnDeleteConfigFile);
-            this.tabPageConfig.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tabPageConfig.Location = new System.Drawing.Point(4, 25);
-            this.tabPageConfig.Name = "tabPageConfig";
-            this.tabPageConfig.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPageConfig.Size = new System.Drawing.Size(640, 628);
-            this.tabPageConfig.TabIndex = 0;
-            this.tabPageConfig.Text = "Файлы конфигурации";
+            this.tabPageConfigFiles.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageConfigFiles.Controls.Add(this.lblInfoFilesPage2);
+            this.tabPageConfigFiles.Controls.Add(this.btnNextToTabPage2);
+            this.tabPageConfigFiles.Controls.Add(this.lblInfoFilesPage1);
+            this.tabPageConfigFiles.Controls.Add(this.btnAddConfigFile);
+            this.tabPageConfigFiles.Controls.Add(this.lstbxFilesNames);
+            this.tabPageConfigFiles.Controls.Add(this.btnDeleteConfigFile);
+            this.tabPageConfigFiles.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tabPageConfigFiles.Location = new System.Drawing.Point(4, 25);
+            this.tabPageConfigFiles.Name = "tabPageConfigFiles";
+            this.tabPageConfigFiles.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageConfigFiles.Size = new System.Drawing.Size(640, 628);
+            this.tabPageConfigFiles.TabIndex = 0;
+            this.tabPageConfigFiles.Text = "Файлы конфигурации";
             // 
             // lblInfoFilesPage2
             // 
@@ -178,26 +178,26 @@
             this.lblInfoFilesPage2.TabIndex = 5;
             this.lblInfoFilesPage2.Text = "После добавления файлов нажмите \"Далее\".";
             // 
-            // tabPage3
+            // tabPageNames
             // 
-            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage3.Controls.Add(this.btnBackToTabPage1);
-            this.tabPage3.Controls.Add(this.btnNextToTabPage3);
-            this.tabPage3.Controls.Add(this.txtbxFourthDeviceName);
-            this.tabPage3.Controls.Add(this.lblFourthDeviceName);
-            this.tabPage3.Controls.Add(this.txtbxThirdDeviceName);
-            this.tabPage3.Controls.Add(this.lblThirdDeviceName);
-            this.tabPage3.Controls.Add(this.txtbxSecondDeviceName);
-            this.tabPage3.Controls.Add(this.lblSecondDeviceName);
-            this.tabPage3.Controls.Add(this.txtbxFirstDeviceName);
-            this.tabPage3.Controls.Add(this.lblFirstDeviceName);
-            this.tabPage3.Controls.Add(this.lblInfoNamesPage1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage3.Size = new System.Drawing.Size(640, 628);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Наименования устройств";
+            this.tabPageNames.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageNames.Controls.Add(this.btnBackToTabPage1);
+            this.tabPageNames.Controls.Add(this.btnNextToTabPage3);
+            this.tabPageNames.Controls.Add(this.txtbxFourthDeviceName);
+            this.tabPageNames.Controls.Add(this.lblFourthDeviceName);
+            this.tabPageNames.Controls.Add(this.txtbxThirdDeviceName);
+            this.tabPageNames.Controls.Add(this.lblThirdDeviceName);
+            this.tabPageNames.Controls.Add(this.txtbxSecondDeviceName);
+            this.tabPageNames.Controls.Add(this.lblSecondDeviceName);
+            this.tabPageNames.Controls.Add(this.txtbxFirstDeviceName);
+            this.tabPageNames.Controls.Add(this.lblFirstDeviceName);
+            this.tabPageNames.Controls.Add(this.lblInfoNamesPage1);
+            this.tabPageNames.Location = new System.Drawing.Point(4, 25);
+            this.tabPageNames.Name = "tabPageNames";
+            this.tabPageNames.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageNames.Size = new System.Drawing.Size(640, 628);
+            this.tabPageNames.TabIndex = 2;
+            this.tabPageNames.Text = "Наименования устройств";
             // 
             // btnBackToTabPage1
             // 
@@ -259,10 +259,10 @@
             // 
             // txtbxSecondDeviceName
             // 
-            this.txtbxSecondDeviceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtbxSecondDeviceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtbxSecondDeviceName.Location = new System.Drawing.Point(240, 276);
             this.txtbxSecondDeviceName.Name = "txtbxSecondDeviceName";
-            this.txtbxSecondDeviceName.Size = new System.Drawing.Size(234, 31);
+            this.txtbxSecondDeviceName.Size = new System.Drawing.Size(234, 29);
             this.txtbxSecondDeviceName.TabIndex = 4;
             // 
             // lblSecondDeviceName
@@ -304,37 +304,37 @@
             this.lblInfoNamesPage1.TabIndex = 0;
             this.lblInfoNamesPage1.Text = resources.GetString("lblInfoNamesPage1.Text");
             // 
-            // tabPage2
+            // tabPageSensors
             // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Controls.Add(this.btnBackToTab2);
-            this.tabPage2.Controls.Add(this.btnFinishConfig);
-            this.tabPage2.Controls.Add(this.textBox7);
-            this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Controls.Add(this.label14);
-            this.tabPage2.Controls.Add(this.textBox8);
-            this.tabPage2.Controls.Add(this.textBox5);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.label11);
-            this.tabPage2.Controls.Add(this.textBox6);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(640, 628);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Уставки датчиков";
+            this.tabPageSensors.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageSensors.Controls.Add(this.btnBackToTab2);
+            this.tabPageSensors.Controls.Add(this.btnFinishConfig);
+            this.tabPageSensors.Controls.Add(this.txtbxFourthDevSensorMinRes);
+            this.tabPageSensors.Controls.Add(this.lblFourthDevSensorMaxRes);
+            this.tabPageSensors.Controls.Add(this.lblFourthDevSensorMinRes);
+            this.tabPageSensors.Controls.Add(this.lblInfoForFourthDevice);
+            this.tabPageSensors.Controls.Add(this.txtbxFourthDevSensorMaxRes);
+            this.tabPageSensors.Controls.Add(this.txtbxThirdDevSensorMinRes);
+            this.tabPageSensors.Controls.Add(this.lblThirdDevSensorMaxRes);
+            this.tabPageSensors.Controls.Add(this.lblThirdDevSensorMinRes);
+            this.tabPageSensors.Controls.Add(this.lblInfoForThirdDevice);
+            this.tabPageSensors.Controls.Add(this.txtbxThirdDevSensorMaxRes);
+            this.tabPageSensors.Controls.Add(this.txtbxSecondDevSensorMinRes);
+            this.tabPageSensors.Controls.Add(this.lblSecondDevSensorMaxRes);
+            this.tabPageSensors.Controls.Add(this.lblSecondDevSensorMinRes);
+            this.tabPageSensors.Controls.Add(this.lblInfoForSecondDevice);
+            this.tabPageSensors.Controls.Add(this.txtbxSecondDevSensorMaxRes);
+            this.tabPageSensors.Controls.Add(this.txtbxFirstDevSensorMaxRes);
+            this.tabPageSensors.Controls.Add(this.lblFirstDevSensorMaxRes);
+            this.tabPageSensors.Controls.Add(this.lblFirstDevSensorMinRes);
+            this.tabPageSensors.Controls.Add(this.lblInfoForFirstDevice);
+            this.tabPageSensors.Controls.Add(this.txtbxFirstDevSensorMinRes);
+            this.tabPageSensors.Location = new System.Drawing.Point(4, 25);
+            this.tabPageSensors.Name = "tabPageSensors";
+            this.tabPageSensors.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSensors.Size = new System.Drawing.Size(640, 628);
+            this.tabPageSensors.TabIndex = 1;
+            this.tabPageSensors.Text = "Уставки датчиков";
             // 
             // btnBackToTab2
             // 
@@ -358,197 +358,213 @@
             this.btnFinishConfig.UseVisualStyleBackColor = true;
             this.btnFinishConfig.Click += new System.EventHandler(this.btnFinishConfig_Click);
             // 
-            // textBox7
+            // txtbxFourthDevSensorMinRes
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox7.Location = new System.Drawing.Point(59, 477);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(144, 29);
-            this.textBox7.TabIndex = 25;
-            this.textBox7.Text = "20";
+            this.txtbxFourthDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtbxFourthDevSensorMinRes.Location = new System.Drawing.Point(59, 477);
+            this.txtbxFourthDevSensorMinRes.Name = "txtbxFourthDevSensorMinRes";
+            this.txtbxFourthDevSensorMinRes.Size = new System.Drawing.Size(144, 29);
+            this.txtbxFourthDevSensorMinRes.TabIndex = 25;
+            this.txtbxFourthDevSensorMinRes.Text = "20";
+            this.txtbxFourthDevSensorMinRes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbxFourthDevSensorMinRes_KeyPress);
+            this.txtbxFourthDevSensorMinRes.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxFourthDevSensorMinRes_Validating);
             // 
-            // label12
+            // lblFourthDevSensorMaxRes
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(319, 440);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(220, 24);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "Верхняя граница, кОм :";
+            this.lblFourthDevSensorMaxRes.AutoSize = true;
+            this.lblFourthDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFourthDevSensorMaxRes.Location = new System.Drawing.Point(319, 440);
+            this.lblFourthDevSensorMaxRes.Name = "lblFourthDevSensorMaxRes";
+            this.lblFourthDevSensorMaxRes.Size = new System.Drawing.Size(220, 24);
+            this.lblFourthDevSensorMaxRes.TabIndex = 24;
+            this.lblFourthDevSensorMaxRes.Text = "Верхняя граница, кОм :";
             // 
-            // label13
+            // lblFourthDevSensorMinRes
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(55, 439);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(214, 24);
-            this.label13.TabIndex = 23;
-            this.label13.Text = "Нижняя граница, кОм :";
+            this.lblFourthDevSensorMinRes.AutoSize = true;
+            this.lblFourthDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFourthDevSensorMinRes.Location = new System.Drawing.Point(55, 439);
+            this.lblFourthDevSensorMinRes.Name = "lblFourthDevSensorMinRes";
+            this.lblFourthDevSensorMinRes.Size = new System.Drawing.Size(214, 24);
+            this.lblFourthDevSensorMinRes.TabIndex = 23;
+            this.lblFourthDevSensorMinRes.Text = "Нижняя граница, кОм :";
             // 
-            // label14
+            // lblInfoForFourthDevice
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.Location = new System.Drawing.Point(55, 406);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(209, 24);
-            this.label14.TabIndex = 22;
-            this.label14.Text = "Уставки для датчиков";
+            this.lblInfoForFourthDevice.AutoSize = true;
+            this.lblInfoForFourthDevice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoForFourthDevice.Location = new System.Drawing.Point(55, 406);
+            this.lblInfoForFourthDevice.Name = "lblInfoForFourthDevice";
+            this.lblInfoForFourthDevice.Size = new System.Drawing.Size(209, 24);
+            this.lblInfoForFourthDevice.TabIndex = 22;
+            this.lblInfoForFourthDevice.Text = "Уставки для датчиков";
             // 
-            // textBox8
+            // txtbxFourthDevSensorMaxRes
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox8.Location = new System.Drawing.Point(323, 478);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(144, 29);
-            this.textBox8.TabIndex = 21;
-            this.textBox8.Text = "200";
+            this.txtbxFourthDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtbxFourthDevSensorMaxRes.Location = new System.Drawing.Point(323, 478);
+            this.txtbxFourthDevSensorMaxRes.Name = "txtbxFourthDevSensorMaxRes";
+            this.txtbxFourthDevSensorMaxRes.Size = new System.Drawing.Size(144, 29);
+            this.txtbxFourthDevSensorMaxRes.TabIndex = 21;
+            this.txtbxFourthDevSensorMaxRes.Text = "200";
+            this.txtbxFourthDevSensorMaxRes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbxFourthDevSensorMaxRes_KeyPress);
+            this.txtbxFourthDevSensorMaxRes.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxFourthDevSensorMaxRes_Validating);
             // 
-            // textBox5
+            // txtbxThirdDevSensorMinRes
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox5.Location = new System.Drawing.Point(59, 345);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(144, 29);
-            this.textBox5.TabIndex = 20;
-            this.textBox5.Text = "20";
+            this.txtbxThirdDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtbxThirdDevSensorMinRes.Location = new System.Drawing.Point(59, 345);
+            this.txtbxThirdDevSensorMinRes.Name = "txtbxThirdDevSensorMinRes";
+            this.txtbxThirdDevSensorMinRes.Size = new System.Drawing.Size(144, 29);
+            this.txtbxThirdDevSensorMinRes.TabIndex = 20;
+            this.txtbxThirdDevSensorMinRes.Text = "20";
+            this.txtbxThirdDevSensorMinRes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbxThirdDevSensorMinRes_KeyPress);
+            this.txtbxThirdDevSensorMinRes.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxThirdDevSensorMinRes_Validating);
             // 
-            // label9
+            // lblThirdDevSensorMaxRes
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(319, 312);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(220, 24);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Верхняя граница, кОм :";
+            this.lblThirdDevSensorMaxRes.AutoSize = true;
+            this.lblThirdDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblThirdDevSensorMaxRes.Location = new System.Drawing.Point(319, 312);
+            this.lblThirdDevSensorMaxRes.Name = "lblThirdDevSensorMaxRes";
+            this.lblThirdDevSensorMaxRes.Size = new System.Drawing.Size(220, 24);
+            this.lblThirdDevSensorMaxRes.TabIndex = 19;
+            this.lblThirdDevSensorMaxRes.Text = "Верхняя граница, кОм :";
             // 
-            // label10
+            // lblThirdDevSensorMinRes
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(55, 311);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(214, 24);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Нижняя граница, кОм :";
+            this.lblThirdDevSensorMinRes.AutoSize = true;
+            this.lblThirdDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblThirdDevSensorMinRes.Location = new System.Drawing.Point(55, 311);
+            this.lblThirdDevSensorMinRes.Name = "lblThirdDevSensorMinRes";
+            this.lblThirdDevSensorMinRes.Size = new System.Drawing.Size(214, 24);
+            this.lblThirdDevSensorMinRes.TabIndex = 18;
+            this.lblThirdDevSensorMinRes.Text = "Нижняя граница, кОм :";
             // 
-            // label11
+            // lblInfoForThirdDevice
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(55, 278);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(214, 24);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Уставки для датчиков ";
+            this.lblInfoForThirdDevice.AutoSize = true;
+            this.lblInfoForThirdDevice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoForThirdDevice.Location = new System.Drawing.Point(55, 278);
+            this.lblInfoForThirdDevice.Name = "lblInfoForThirdDevice";
+            this.lblInfoForThirdDevice.Size = new System.Drawing.Size(214, 24);
+            this.lblInfoForThirdDevice.TabIndex = 17;
+            this.lblInfoForThirdDevice.Text = "Уставки для датчиков ";
             // 
-            // textBox6
+            // txtbxThirdDevSensorMaxRes
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox6.Location = new System.Drawing.Point(323, 346);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(144, 29);
-            this.textBox6.TabIndex = 16;
-            this.textBox6.Text = "200";
+            this.txtbxThirdDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtbxThirdDevSensorMaxRes.Location = new System.Drawing.Point(323, 346);
+            this.txtbxThirdDevSensorMaxRes.Name = "txtbxThirdDevSensorMaxRes";
+            this.txtbxThirdDevSensorMaxRes.Size = new System.Drawing.Size(144, 29);
+            this.txtbxThirdDevSensorMaxRes.TabIndex = 16;
+            this.txtbxThirdDevSensorMaxRes.Text = "200";
+            this.txtbxThirdDevSensorMaxRes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbxThirdDevSensorMaxRes_KeyPress);
+            this.txtbxThirdDevSensorMaxRes.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxThirdDevSensorMaxRes_Validating);
             // 
-            // textBox3
+            // txtbxSecondDevSensorMinRes
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.Location = new System.Drawing.Point(59, 216);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(144, 29);
-            this.textBox3.TabIndex = 15;
-            this.textBox3.Text = "20";
+            this.txtbxSecondDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtbxSecondDevSensorMinRes.Location = new System.Drawing.Point(59, 216);
+            this.txtbxSecondDevSensorMinRes.Name = "txtbxSecondDevSensorMinRes";
+            this.txtbxSecondDevSensorMinRes.Size = new System.Drawing.Size(144, 29);
+            this.txtbxSecondDevSensorMinRes.TabIndex = 15;
+            this.txtbxSecondDevSensorMinRes.Text = "20";
+            this.txtbxSecondDevSensorMinRes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbxSecondDevSensorMinRes_KeyPress);
+            this.txtbxSecondDevSensorMinRes.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxSecondDevSensorMinRes_Validating);
             // 
-            // label6
+            // lblSecondDevSensorMaxRes
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(319, 181);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(220, 24);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Верхняя граница, кОм :";
+            this.lblSecondDevSensorMaxRes.AutoSize = true;
+            this.lblSecondDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSecondDevSensorMaxRes.Location = new System.Drawing.Point(319, 181);
+            this.lblSecondDevSensorMaxRes.Name = "lblSecondDevSensorMaxRes";
+            this.lblSecondDevSensorMaxRes.Size = new System.Drawing.Size(220, 24);
+            this.lblSecondDevSensorMaxRes.TabIndex = 14;
+            this.lblSecondDevSensorMaxRes.Text = "Верхняя граница, кОм :";
             // 
-            // label7
+            // lblSecondDevSensorMinRes
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(55, 180);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(214, 24);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Нижняя граница, кОм :";
+            this.lblSecondDevSensorMinRes.AutoSize = true;
+            this.lblSecondDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSecondDevSensorMinRes.Location = new System.Drawing.Point(55, 180);
+            this.lblSecondDevSensorMinRes.Name = "lblSecondDevSensorMinRes";
+            this.lblSecondDevSensorMinRes.Size = new System.Drawing.Size(214, 24);
+            this.lblSecondDevSensorMinRes.TabIndex = 13;
+            this.lblSecondDevSensorMinRes.Text = "Нижняя граница, кОм :";
             // 
-            // label8
+            // lblInfoForSecondDevice
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(55, 147);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(209, 24);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Уставки для датчиков";
+            this.lblInfoForSecondDevice.AutoSize = true;
+            this.lblInfoForSecondDevice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoForSecondDevice.Location = new System.Drawing.Point(55, 147);
+            this.lblInfoForSecondDevice.Name = "lblInfoForSecondDevice";
+            this.lblInfoForSecondDevice.Size = new System.Drawing.Size(209, 24);
+            this.lblInfoForSecondDevice.TabIndex = 12;
+            this.lblInfoForSecondDevice.Text = "Уставки для датчиков";
             // 
-            // textBox4
+            // txtbxSecondDevSensorMaxRes
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox4.Location = new System.Drawing.Point(323, 217);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(144, 29);
-            this.textBox4.TabIndex = 11;
-            this.textBox4.Text = "200";
+            this.txtbxSecondDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtbxSecondDevSensorMaxRes.Location = new System.Drawing.Point(323, 217);
+            this.txtbxSecondDevSensorMaxRes.Name = "txtbxSecondDevSensorMaxRes";
+            this.txtbxSecondDevSensorMaxRes.Size = new System.Drawing.Size(144, 29);
+            this.txtbxSecondDevSensorMaxRes.TabIndex = 11;
+            this.txtbxSecondDevSensorMaxRes.Text = "200";
+            this.txtbxSecondDevSensorMaxRes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbxSecondDevSensorMaxRes_KeyPress);
+            this.txtbxSecondDevSensorMaxRes.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxSecondDevSensorMaxRes_Validating);
             // 
-            // textBox2
+            // txtbxFirstDevSensorMaxRes
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(323, 93);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(144, 29);
-            this.textBox2.TabIndex = 10;
-            this.textBox2.Text = "200";
+            this.txtbxFirstDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtbxFirstDevSensorMaxRes.Location = new System.Drawing.Point(323, 93);
+            this.txtbxFirstDevSensorMaxRes.Name = "txtbxFirstDevSensorMaxRes";
+            this.txtbxFirstDevSensorMaxRes.Size = new System.Drawing.Size(144, 29);
+            this.txtbxFirstDevSensorMaxRes.TabIndex = 10;
+            this.txtbxFirstDevSensorMaxRes.Text = "200";
+            this.txtbxFirstDevSensorMaxRes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbxFirstDevSensorMaxRes_KeyPress);
+            this.txtbxFirstDevSensorMaxRes.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxFirstDevSensorMaxRes_Validating);
             // 
-            // label5
+            // lblFirstDevSensorMaxRes
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(319, 61);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(220, 24);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Верхняя граница, кОм :";
+            this.lblFirstDevSensorMaxRes.AutoSize = true;
+            this.lblFirstDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFirstDevSensorMaxRes.Location = new System.Drawing.Point(319, 61);
+            this.lblFirstDevSensorMaxRes.Name = "lblFirstDevSensorMaxRes";
+            this.lblFirstDevSensorMaxRes.Size = new System.Drawing.Size(220, 24);
+            this.lblFirstDevSensorMaxRes.TabIndex = 3;
+            this.lblFirstDevSensorMaxRes.Text = "Верхняя граница, кОм :";
             // 
-            // label4
+            // lblFirstDevSensorMinRes
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(55, 60);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(214, 24);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Нижняя граница, кОм :";
+            this.lblFirstDevSensorMinRes.AutoSize = true;
+            this.lblFirstDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFirstDevSensorMinRes.Location = new System.Drawing.Point(55, 60);
+            this.lblFirstDevSensorMinRes.Name = "lblFirstDevSensorMinRes";
+            this.lblFirstDevSensorMinRes.Size = new System.Drawing.Size(214, 24);
+            this.lblFirstDevSensorMinRes.TabIndex = 2;
+            this.lblFirstDevSensorMinRes.Text = "Нижняя граница, кОм :";
             // 
-            // label3
+            // lblInfoForFirstDevice
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(55, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(209, 24);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Уставки для датчиков";
+            this.lblInfoForFirstDevice.AutoSize = true;
+            this.lblInfoForFirstDevice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblInfoForFirstDevice.Location = new System.Drawing.Point(55, 27);
+            this.lblInfoForFirstDevice.Name = "lblInfoForFirstDevice";
+            this.lblInfoForFirstDevice.Size = new System.Drawing.Size(209, 24);
+            this.lblInfoForFirstDevice.TabIndex = 1;
+            this.lblInfoForFirstDevice.Text = "Уставки для датчиков";
             // 
-            // textBox1
+            // txtbxFirstDevSensorMinRes
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(59, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 29);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "20";
+            this.txtbxFirstDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtbxFirstDevSensorMinRes.Location = new System.Drawing.Point(59, 92);
+            this.txtbxFirstDevSensorMinRes.Name = "txtbxFirstDevSensorMinRes";
+            this.txtbxFirstDevSensorMinRes.Size = new System.Drawing.Size(144, 29);
+            this.txtbxFirstDevSensorMinRes.TabIndex = 0;
+            this.txtbxFirstDevSensorMinRes.Text = "20";
+            this.txtbxFirstDevSensorMinRes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbxFirstDevSensorMinRes_KeyPress);
+            this.txtbxFirstDevSensorMinRes.Validating += new System.ComponentModel.CancelEventHandler(this.txtbxFirstDevSensorMinRes_Validating);
             // 
             // ConfigFilesForm
             // 
@@ -560,12 +576,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Конфигурирование программы";
             this.tabControlConfig.ResumeLayout(false);
-            this.tabPageConfig.ResumeLayout(false);
-            this.tabPageConfig.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabPageConfigFiles.ResumeLayout(false);
+            this.tabPageConfigFiles.PerformLayout();
+            this.tabPageNames.ResumeLayout(false);
+            this.tabPageNames.PerformLayout();
+            this.tabPageSensors.ResumeLayout(false);
+            this.tabPageSensors.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -580,31 +596,31 @@
         private System.Windows.Forms.Button btnNextToTabPage2;
         private System.Windows.Forms.Label lblInfoFilesPage1;
         private System.Windows.Forms.TabControl tabControlConfig;
-        private System.Windows.Forms.TabPage tabPageConfig;
+        private System.Windows.Forms.TabPage tabPageConfigFiles;
         private System.Windows.Forms.Label lblInfoFilesPage2;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TabPage tabPageSensors;
+        private System.Windows.Forms.TextBox txtbxFourthDevSensorMinRes;
+        private System.Windows.Forms.Label lblFourthDevSensorMaxRes;
+        private System.Windows.Forms.Label lblFourthDevSensorMinRes;
+        private System.Windows.Forms.Label lblInfoForFourthDevice;
+        private System.Windows.Forms.TextBox txtbxFourthDevSensorMaxRes;
+        private System.Windows.Forms.TextBox txtbxThirdDevSensorMinRes;
+        private System.Windows.Forms.Label lblThirdDevSensorMaxRes;
+        private System.Windows.Forms.Label lblThirdDevSensorMinRes;
+        private System.Windows.Forms.Label lblInfoForThirdDevice;
+        private System.Windows.Forms.TextBox txtbxThirdDevSensorMaxRes;
+        private System.Windows.Forms.TextBox txtbxSecondDevSensorMinRes;
+        private System.Windows.Forms.Label lblSecondDevSensorMaxRes;
+        private System.Windows.Forms.Label lblSecondDevSensorMinRes;
+        private System.Windows.Forms.Label lblInfoForSecondDevice;
+        private System.Windows.Forms.TextBox txtbxSecondDevSensorMaxRes;
+        private System.Windows.Forms.TextBox txtbxFirstDevSensorMaxRes;
+        private System.Windows.Forms.Label lblFirstDevSensorMaxRes;
+        private System.Windows.Forms.Label lblFirstDevSensorMinRes;
+        private System.Windows.Forms.Label lblInfoForFirstDevice;
+        private System.Windows.Forms.TextBox txtbxFirstDevSensorMinRes;
         private System.Windows.Forms.Button btnFinishConfig;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPageNames;
         private System.Windows.Forms.TextBox txtbxFourthDeviceName;
         private System.Windows.Forms.Label lblFourthDeviceName;
         private System.Windows.Forms.TextBox txtbxThirdDeviceName;
