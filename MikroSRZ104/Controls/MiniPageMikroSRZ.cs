@@ -17,12 +17,13 @@ namespace MikroSRZ104
     public partial class MiniPageMikroSRZ : UserControl
     {
         SensorsTableForm ff;
-        public MiniPageMikroSRZ(SensorsTableForm f, Point location)
+        public MiniPageMikroSRZ(string name, SensorsTableForm f, Point location)
         {
-
             InitializeComponent();
 
             ff = f;
+
+            lblName.Text = name;
 
             this.Location = location;            
 
@@ -41,11 +42,25 @@ namespace MikroSRZ104
                 case "ResistanceOfNegativePole":
                     LabelUpdater(lblNegativeResistance, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
                     break;
-                case "ResistanceOfNetwork":
-                    LabelUpdater(lblResistance, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
+                case "ResistanceOfMainBusesAndBattery":
+                    if ((double)value >= 16000)
+                    {
+                        LabelUpdater(lblResistance, "Нет данных", Color.Black);
+                    }
+                    else
+                    {
+                        LabelUpdater(lblResistance, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
+                    }
                     break;
                 case "CapacityOfNetwork":
-                    LabelUpdater(lblCapacitance, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
+                    if ((double)value > 220)
+                    {
+                        LabelUpdater(lblCapacitance, "Нет данных", Color.Black);
+                    }
+                    else
+                    {
+                        LabelUpdater(lblCapacitance, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
+                    }
                     break;
                 case "IsSensorsCommunicationError":
                     LEDUpdater(LEDIsCommunicationError, (bool)value);
@@ -101,6 +116,11 @@ namespace MikroSRZ104
         {
             //ff.Location = new Point(0, 0);
             ff.ShowDialog();
+        }
+
+        private void lblResistance_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

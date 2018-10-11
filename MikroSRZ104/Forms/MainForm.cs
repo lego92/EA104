@@ -142,17 +142,13 @@ namespace MikroSRZ104
                 }
 
 
-
-
-
-
                 int locationX = 0;
 
                 for (int k = 0; k < mikroSRZArray.Length; k++)
                 {
                     sensorTableFormsArray[k] = new SensorsTableForm(mikroSRZArray[k].Sensors);
                     mikroSRZArray[k].Subscribe(sensorTableFormsArray[k]);
-                    miniPagesArray[k] = new MiniPageMikroSRZ(sensorTableFormsArray[k], new Point(locationX, 0));
+                    miniPagesArray[k] = new MiniPageMikroSRZ(mikroSRZArray[k].Name,sensorTableFormsArray[k], new Point(locationX, 0));
                     this.Controls.Add(miniPagesArray[k]);
                     locationX += miniPagesArray[k].Size.Width;
 
@@ -165,13 +161,8 @@ namespace MikroSRZ104
                 workerThread = new Thread(ConnectCycle);
                 workerThread.Start();
             }
-            else
-            {
 
-            }
-
-
-        }        
+        }
 
         public void ConnectCycle()
         {
@@ -195,6 +186,6 @@ namespace MikroSRZ104
 
         }
 
-        
+
     }
 }

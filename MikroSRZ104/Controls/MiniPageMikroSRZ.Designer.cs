@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.lblVoltage = new System.Windows.Forms.Label();
             this.lblResistance = new System.Windows.Forms.Label();
             this.lblPositiveResistance = new System.Windows.Forms.Label();
@@ -45,58 +45,59 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.LEDGroundAlarm = new MfgControl.AdvancedHMI.Controls.SimpleLED();
-            this.button123 = new System.Windows.Forms.Button();
+            this.btnToSensorsInfoList = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(158, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Название ЩПТ";
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblName.Location = new System.Drawing.Point(158, 33);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(133, 20);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Название ЩПТ";
             // 
             // lblVoltage
             // 
-            this.lblVoltage.AutoSize = true;
             this.lblVoltage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblVoltage.Location = new System.Drawing.Point(224, 184);
+            this.lblVoltage.Location = new System.Drawing.Point(176, 184);
             this.lblVoltage.Name = "lblVoltage";
             this.lblVoltage.Size = new System.Drawing.Size(196, 20);
             this.lblVoltage.TabIndex = 1;
             this.lblVoltage.Text = "Напряжение на шинах";
+            this.lblVoltage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblResistance
             // 
-            this.lblResistance.AutoSize = true;
             this.lblResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblResistance.Location = new System.Drawing.Point(224, 354);
+            this.lblResistance.Location = new System.Drawing.Point(186, 354);
             this.lblResistance.Name = "lblResistance";
             this.lblResistance.Size = new System.Drawing.Size(186, 20);
             this.lblResistance.TabIndex = 2;
             this.lblResistance.Text = "Сопротивление сети";
+            this.lblResistance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblResistance.Click += new System.EventHandler(this.lblResistance_Click);
             // 
             // lblPositiveResistance
             // 
-            this.lblPositiveResistance.AutoSize = true;
             this.lblPositiveResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPositiveResistance.Location = new System.Drawing.Point(224, 237);
+            this.lblPositiveResistance.Location = new System.Drawing.Point(220, 237);
             this.lblPositiveResistance.Name = "lblPositiveResistance";
             this.lblPositiveResistance.Size = new System.Drawing.Size(152, 20);
             this.lblPositiveResistance.TabIndex = 3;
             this.lblPositiveResistance.Text = "Сопротивление+";
+            this.lblPositiveResistance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblNegativeResistance
             // 
-            this.lblNegativeResistance.AutoSize = true;
             this.lblNegativeResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblNegativeResistance.Location = new System.Drawing.Point(224, 293);
             this.lblNegativeResistance.Name = "lblNegativeResistance";
             this.lblNegativeResistance.Size = new System.Drawing.Size(148, 20);
             this.lblNegativeResistance.TabIndex = 4;
             this.lblNegativeResistance.Text = "Сопротивление-";
+            this.lblNegativeResistance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
@@ -110,13 +111,13 @@
             // 
             // lblCapacitance
             // 
-            this.lblCapacitance.AutoSize = true;
             this.lblCapacitance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblCapacitance.Location = new System.Drawing.Point(224, 413);
+            this.lblCapacitance.Location = new System.Drawing.Point(291, 413);
             this.lblCapacitance.Name = "lblCapacitance";
             this.lblCapacitance.Size = new System.Drawing.Size(81, 20);
             this.lblCapacitance.TabIndex = 6;
             this.lblCapacitance.Text = "Емкость";
+            this.lblCapacitance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
             // 
@@ -216,30 +217,30 @@
             this.LEDGroundAlarm.BackColor = System.Drawing.Color.Transparent;
             this.LEDGroundAlarm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LEDGroundAlarm.LED_Brightness = MfgControl.AdvancedHMI.Controls.SimpleLED.LED_Bri.Brighter;
-            this.LEDGroundAlarm.Location = new System.Drawing.Point(228, 460);
+            this.LEDGroundAlarm.Location = new System.Drawing.Point(325, 460);
             this.LEDGroundAlarm.MaximumSize = new System.Drawing.Size(360, 360);
             this.LEDGroundAlarm.MinimumSize = new System.Drawing.Size(30, 30);
             this.LEDGroundAlarm.Name = "LEDGroundAlarm";
             this.LEDGroundAlarm.Size = new System.Drawing.Size(47, 47);
             this.LEDGroundAlarm.TabIndex = 16;
             // 
-            // button123
+            // btnToSensorsInfoList
             // 
-            this.button123.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button123.Location = new System.Drawing.Point(104, 610);
-            this.button123.Name = "button123";
-            this.button123.Size = new System.Drawing.Size(171, 42);
-            this.button123.TabIndex = 17;
-            this.button123.Text = "К списку датчиков";
-            this.button123.UseVisualStyleBackColor = true;
-            this.button123.Click += new System.EventHandler(this.button123_Click);
+            this.btnToSensorsInfoList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnToSensorsInfoList.Location = new System.Drawing.Point(104, 610);
+            this.btnToSensorsInfoList.Name = "btnToSensorsInfoList";
+            this.btnToSensorsInfoList.Size = new System.Drawing.Size(171, 42);
+            this.btnToSensorsInfoList.TabIndex = 17;
+            this.btnToSensorsInfoList.Text = "К списку датчиков";
+            this.btnToSensorsInfoList.UseVisualStyleBackColor = true;
+            this.btnToSensorsInfoList.Click += new System.EventHandler(this.button123_Click);
             // 
             // MiniPageMikroSRZ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.button123);
+            this.Controls.Add(this.btnToSensorsInfoList);
             this.Controls.Add(this.LEDGroundAlarm);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -256,7 +257,7 @@
             this.Controls.Add(this.lblPositiveResistance);
             this.Controls.Add(this.lblResistance);
             this.Controls.Add(this.lblVoltage);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblName);
             this.Name = "MiniPageMikroSRZ";
             this.Size = new System.Drawing.Size(465, 684);
             this.ResumeLayout(false);
@@ -266,7 +267,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblVoltage;
         private System.Windows.Forms.Label lblResistance;
         private System.Windows.Forms.Label lblPositiveResistance;
@@ -283,6 +284,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private MfgControl.AdvancedHMI.Controls.SimpleLED LEDGroundAlarm;
-        private System.Windows.Forms.Button button123;
+        private System.Windows.Forms.Button btnToSensorsInfoList;
     }
 }

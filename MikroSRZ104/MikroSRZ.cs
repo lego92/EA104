@@ -36,7 +36,7 @@ namespace MikroSRZ104
         ResistanceOfMainBusesAndBattery = 852469,
         ResistanceOfPositivePole = 851972,
         ResistanceOfNegativePole = 851973,
-        ResistanceOfNetwork = 852471,
+        ResistanceOfNetwork = 851971,
         CapacityOfNetwork = 851974
     }
 

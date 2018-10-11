@@ -10,14 +10,14 @@ using MfgControl.AdvancedHMI.Controls;
 
 namespace MikroSRZ104
 {
-    
+
     public partial class SensorsTableForm : Form
     {
         public SensorsTableForm(Sensor[] sensors)
         {
             InitializeComponent();
 
-            var a = dataGridView1.Columns[3].DataGridView;            
+            var a = dataGridView1.Columns[3].DataGridView;
 
             for (int i = 0; i < sensors.Length; i++)
             {
@@ -37,9 +37,15 @@ namespace MikroSRZ104
             switch (fieldname)
             {
                 case "Resistance":
+                    if (true)
+                    {
+
+                    }
                     if ((double)value > 10000)
                     {
                         dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = "Норма";
+                        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Норма";
+                        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.White;
                     }
                     else
                     {
@@ -47,13 +53,13 @@ namespace MikroSRZ104
                         {
                             dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Снижена";
                             dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.Orange;
-                            //dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.
                         }
                         else
                         {
                             dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Норма";
-                            dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = SystemColors.Control;
+                            dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.White;
                         }
+
                         dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = Math.Round((double)value, 3);
                     }
                     break;
@@ -110,6 +116,24 @@ namespace MikroSRZ104
                     }
                     break;
 
+            }
+
+            string isComErr = (string)dataGridView1.Rows[number - 1].Cells["sensorComErr"].Value;
+            string isCalErr = (string)dataGridView1.Rows[number - 1].Cells["sensorCalcErr"].Value;
+
+
+            if (isComErr == "Ошибка" || isCalErr == "Ошибка")
+            {
+                for (int i = 2; i < dataGridView1.Rows[number - 1].Cells.Count; i++)
+                {
+                    string val = (string)dataGridView1.Rows[number - 1].Cells[i].Value;
+
+                    if (val != "Ошибка")
+                    {
+                        dataGridView1.Rows[number - 1].Cells[i].Style.BackColor = Color.White;
+                        dataGridView1.Rows[number - 1].Cells[i].Value = "-";
+                    }
+                }
             }
         }
     }

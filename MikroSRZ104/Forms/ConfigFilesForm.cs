@@ -237,6 +237,8 @@ namespace MikroSRZ104
             }
 
             xml.Save("MikroSRZ104Config.ea");
+
+            this.Close();
         }
 
         private void btnBackToTab2_Click(object sender, EventArgs e)
