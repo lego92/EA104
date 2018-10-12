@@ -42,6 +42,8 @@ namespace MikroSRZ104
         SensorsTableForm[] sensorTableFormsArray;
         //
         Thread workerThread = null;
+        //
+        bool stopThread = false;
 
         public MainForm()
         {
@@ -166,7 +168,7 @@ namespace MikroSRZ104
 
         public void ConnectCycle()
         {
-            while (true)
+            while (!stopThread)
             {
                 foreach (var item in mikroSRZArray)
                 {
@@ -183,9 +185,19 @@ namespace MikroSRZ104
 
         private void btnExitApp_Click(object sender, EventArgs e)
         {
-
+            
         }
 
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            stopThread = true;
 
+            foreach (var item in mikroSRZArray)
+            {
+                item.Disconnect();
+            }
+
+            Application.Exit();
+        }
     }
 }

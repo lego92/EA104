@@ -231,17 +231,36 @@ namespace MikroSRZ104
             }
         }
 
+        public void Disconnect()
+        {
+            try
+            {
+                if (Con != null && Con.IsRunning)
+                {
+                    Con.Close();
+                }
+            }
+            catch(ConnectionException)
+            {
+
+            }
+        }
+
         private void ConnectionHandler(object parameter, ConnectionEvent connectionEvent)
         {
             switch (connectionEvent)
             {
                 case ConnectionEvent.OPENED:
-                    this.ConnectionStatus = true;
-                    this.StatusChanged("Активно");
+                    if (Con.IsRunning)
+                    {
+                        this.StatusChanged("Активно");
+                    }
                     break;
                 case ConnectionEvent.CLOSED:
-                    this.ConnectionStatus = false;
-                    this.StatusChanged("Неактивно");
+                    if (!Con.IsRunning)
+                    {
+                        this.StatusChanged("Неактивно");
+                    }
                     break;
                 case ConnectionEvent.LOST:
                     break;
