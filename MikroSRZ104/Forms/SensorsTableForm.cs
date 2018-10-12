@@ -37,31 +37,32 @@ namespace MikroSRZ104
             switch (fieldname)
             {
                 case "Resistance":
-                    if (true)
-                    {
 
-                    }
-                    if ((double)value > 10000)
-                    {
-                        dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = "Норма";
-                        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Норма";
-                        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.White;
-                    }
-                    else
-                    {
-                        if ((double)value < 20)
-                        {
-                            dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Снижена";
-                            dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.Orange;
-                        }
-                        else
-                        {
-                            dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Норма";
-                            dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.White;
-                        }
+                    //if ((double)value > 10000)
+                    //{
+                    //    dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = "Норма";
+                    //    dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Норма";
+                    //    dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.White;
+                    //}
+                    //else
+                    //{
+                    //    if ((double)value < 20)
+                    //    {
+                    //        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Снижена";
+                    //        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.Orange;
+                    //    }
+                    //    else
+                    //    {
+                    //        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Норма";
+                    //        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.White;
+                    //    }
 
-                        dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = Math.Round((double)value, 3);
-                    }
+                    //    dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = Math.Round((double)value, 3);
+                    //}
+                    //break;
+
+                    dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = Convert.ToString(Math.Round((double)value, 3));
+
                     break;
 
                 case "IsCommunicationError":

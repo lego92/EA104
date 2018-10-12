@@ -7,6 +7,8 @@ using lib60870.CS101;
 using lib60870.CS104;
 using System.Collections;
 using System.Reflection;
+using System.Windows.Forms;
+using System.Threading;
 
 
 namespace MikroSRZ104
@@ -45,6 +47,8 @@ namespace MikroSRZ104
     {
         public event MikroSRZDataChangedDelegate Changed;
         public event StatusChangedDelegate StatusChanged;
+
+        public bool IsDataRecieved = false;
 
         private struct SinglePoint
         {
@@ -166,7 +170,11 @@ namespace MikroSRZ104
 
         public bool IsActiveMode { get; set; }
 
-        public bool sPassiveMode { get; set; }
+        public bool IsPassiveMode { get; set; }
+
+        public System.Windows.Forms.Timer deviceErrorTimer;
+
+        public Thread timerThread = null;
 
         public MikroSRZ(string name, string ipAddress, int numberOfSensors)
         {
@@ -201,7 +209,40 @@ namespace MikroSRZ104
                 MEarray1[i].address = BaseMEAddresses1[i];
             }
 
+                        
+
+            timerThread = new Thread(timer);
+
+            timerThread.Start();
         }
+
+        public void timer()
+        {
+            deviceErrorTimer = new System.Windows.Forms.Timer();
+
+            deviceErrorTimer.Interval = 1000;
+
+            deviceErrorTimer.Enabled = true;
+
+            deviceErrorTimer.Tick += new System.EventHandler(Ticker);
+
+            deviceErrorTimer.Start();
+
+
+            while (true)
+            {
+
+            }
+        }
+
+        public void Ticker(object sender, EventArgs e)
+        {
+            if(IsDataRecieved)
+            {
+                IsDataRecieved = false;
+            }
+        }
+
 
         public void CreateSensor(int index,string factorynum, string name, double thresholdMinResistance, 
                                                                                     double thresholdMaxResistance)
@@ -272,6 +313,7 @@ namespace MikroSRZ104
 
             if (asdu.TypeId == TypeID.M_SP_NA_1)
             {
+                IsDataRecieved = true;
 
                 for (int i = 0; i < asdu.NumberOfElements; i++)
                 {
@@ -315,6 +357,9 @@ namespace MikroSRZ104
 
             else if (asdu.TypeId == TypeID.M_ME_NC_1)
             {
+
+                IsDataRecieved = true;
+               
                 for (int i = 0; i < asdu.NumberOfElements; i++)
                 {
                     var mfv = (MeasuredValueShort)asdu.GetElement(i);

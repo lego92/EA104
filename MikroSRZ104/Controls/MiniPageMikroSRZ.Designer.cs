@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblName = new System.Windows.Forms.Label();
             this.lblVoltage = new System.Windows.Forms.Label();
             this.lblResistance = new System.Windows.Forms.Label();
@@ -46,6 +47,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.LEDGroundAlarm = new MfgControl.AdvancedHMI.Controls.SimpleLED();
             this.btnToSensorsInfoList = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblName
@@ -235,6 +237,10 @@
             this.btnToSensorsInfoList.UseVisualStyleBackColor = true;
             this.btnToSensorsInfoList.Click += new System.EventHandler(this.button123_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MiniPageMikroSRZ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -285,5 +291,6 @@
         private System.Windows.Forms.Label label10;
         private MfgControl.AdvancedHMI.Controls.SimpleLED LEDGroundAlarm;
         private System.Windows.Forms.Button btnToSensorsInfoList;
+        private System.Windows.Forms.Timer timer1;
     }
 }

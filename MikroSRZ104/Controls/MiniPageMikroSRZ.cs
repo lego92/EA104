@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
 using lib60870;
 using lib60870.CS101;
@@ -17,6 +18,11 @@ namespace MikroSRZ104
     public partial class MiniPageMikroSRZ : UserControl
     {
         SensorsTableForm ff;
+
+        System.Windows.Forms.Timer deviceErrorTimer;
+
+        Thread timerThread = null; 
+
         public MiniPageMikroSRZ(string name, SensorsTableForm f, Point location)
         {
             InitializeComponent();
@@ -25,7 +31,20 @@ namespace MikroSRZ104
 
             lblName.Text = name;
 
-            this.Location = location;            
+            this.Location = location;
+
+            deviceErrorTimer = new System.Windows.Forms.Timer();
+
+            deviceErrorTimer.Enabled = true;            
+
+            //deviceErrorTimer = new System.Threading.Timer();        
+
+            timerThread = new Thread(Timer);   
+
+        }
+
+        public void Timer()
+        {
 
         }
 
@@ -119,6 +138,11 @@ namespace MikroSRZ104
         }
 
         private void lblResistance_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
         {
 
         }
