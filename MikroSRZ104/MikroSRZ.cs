@@ -8,6 +8,7 @@ using lib60870.CS104;
 using System.Collections;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Timers;
 using System.Threading;
 
 
@@ -47,8 +48,7 @@ namespace MikroSRZ104
     {
         public event MikroSRZDataChangedDelegate Changed;
         public event StatusChangedDelegate StatusChanged;
-
-        public bool IsDataRecieved = false;
+        public event DeviceErrorDelegate DevErrHappened;
 
         private struct SinglePoint
         {
@@ -89,6 +89,22 @@ namespace MikroSRZ104
         public Connection Con { get; set; }
 
         public bool ConnectionStatus { get; set; } = false;
+
+        public bool IsDataRecieved { get; set; } = false;
+
+        public bool DeviceError { get; set; } = false;
+
+        //public bool DeviceError
+        //{
+        //    get
+        //    {
+
+        //    }
+        //    set
+        //    {
+
+        //    }
+        //}
 
         public Sensor[] Sensors;
 
@@ -172,7 +188,7 @@ namespace MikroSRZ104
 
         public bool IsPassiveMode { get; set; }
 
-        public System.Windows.Forms.Timer deviceErrorTimer;
+        public System.Timers.Timer deviceErrorTimer;
 
         public Thread timerThread = null;
 
@@ -209,37 +225,46 @@ namespace MikroSRZ104
                 MEarray1[i].address = BaseMEAddresses1[i];
             }
 
-                        
+            //timerThread = new Thread(timer);
 
-            timerThread = new Thread(timer);
+            //timerThread.Start();
 
-            timerThread.Start();
-        }
+            deviceErrorTimer = new System.Timers.Timer(5000);
 
-        public void timer()
-        {
-            deviceErrorTimer = new System.Windows.Forms.Timer();
-
-            deviceErrorTimer.Interval = 1000;
+            deviceErrorTimer.Elapsed += new ElapsedEventHandler(Ticker);
 
             deviceErrorTimer.Enabled = true;
-
-            deviceErrorTimer.Tick += new System.EventHandler(Ticker);
-
-            deviceErrorTimer.Start();
-
-
-            while (true)
-            {
-
-            }
         }
+
+        //public void timer()
+        //{
+        //    deviceErrorTimer = new System.Timers.Timer(5000);
+
+        //    deviceErrorTimer.Elapsed += new ElapsedEventHandler(Ticker);
+
+        //    deviceErrorTimer.Enabled = true;
+
+        //    while (true)
+        //    {
+
+        //    }
+        //}
 
         public void Ticker(object sender, EventArgs e)
         {
             if(IsDataRecieved)
             {
                 IsDataRecieved = false;
+                if (DeviceError)
+                {
+                    DeviceError = false;
+                    DevErrHappened(false);
+                }
+            }
+            else if (ConnectionStatus)            
+            {
+                DeviceError = true;
+                DevErrHappened(true);
             }
         }
 
@@ -295,12 +320,14 @@ namespace MikroSRZ104
                     if (Con.IsRunning)
                     {
                         this.StatusChanged("Активно");
+                        ConnectionStatus = true;
                     }
                     break;
                 case ConnectionEvent.CLOSED:
                     if (!Con.IsRunning)
                     {
                         this.StatusChanged("Неактивно");
+                        ConnectionStatus = false;
                     }
                     break;
                 case ConnectionEvent.LOST:

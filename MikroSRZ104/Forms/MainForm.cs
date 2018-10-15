@@ -29,7 +29,7 @@ namespace MikroSRZ104
     public delegate void MikroSRZDataChangedDelegate(string fieldname, object value);
     public delegate void SensorDataChangedDelegate(int number, string fieldname, object value);
     public delegate void StatusChangedDelegate(string status);
-
+    public delegate void DeviceErrorDelegate(bool IsError);
 
 
     public partial class MainForm : Form
@@ -156,6 +156,7 @@ namespace MikroSRZ104
 
                     mikroSRZArray[k].StatusChanged += miniPagesArray[k].StatusChanger;
                     mikroSRZArray[k].Changed += miniPagesArray[k].Method;
+                    mikroSRZArray[k].DevErrHappened += miniPagesArray[k].ErrorHandler;
 
                 }
 
@@ -172,7 +173,7 @@ namespace MikroSRZ104
             {
                 foreach (var item in mikroSRZArray)
                 {
-                    if (!item.ConnectionStatus)
+                    if (!item.ConnectionStatus)/////!!!!!!не меняется!!!!!!!!////////
                     {
                         item.Connect();
                     }

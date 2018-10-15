@@ -17,11 +17,7 @@ namespace MikroSRZ104
 {
     public partial class MiniPageMikroSRZ : UserControl
     {
-        SensorsTableForm ff;
-
-        System.Windows.Forms.Timer deviceErrorTimer;
-
-        Thread timerThread = null; 
+        SensorsTableForm ff;       
 
         public MiniPageMikroSRZ(string name, SensorsTableForm f, Point location)
         {
@@ -31,23 +27,10 @@ namespace MikroSRZ104
 
             lblName.Text = name;
 
-            this.Location = location;
-
-            deviceErrorTimer = new System.Windows.Forms.Timer();
-
-            deviceErrorTimer.Enabled = true;            
-
-            //deviceErrorTimer = new System.Threading.Timer();        
-
-            timerThread = new Thread(Timer);   
+            this.Location = location;                    
 
         }
-
-        public void Timer()
-        {
-
-        }
-
+        
         public void Method(string fieldname, object value)
         {
             switch (fieldname)
@@ -102,6 +85,11 @@ namespace MikroSRZ104
                     LabelUpdater(label8, status, Color.Red);
                     break;
             }
+        }
+
+        public void ErrorHandler(bool IsError)
+        {
+            LEDUpdater(LEDDevErr, IsError);
         }
 
         private void LabelUpdater(Label label, string labelstr, Color color)

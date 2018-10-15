@@ -48,6 +48,7 @@
             this.LEDGroundAlarm = new MfgControl.AdvancedHMI.Controls.SimpleLED();
             this.btnToSensorsInfoList = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.LEDDevErr = new MfgControl.AdvancedHMI.Controls.SimpleLED();
             this.SuspendLayout();
             // 
             // lblName
@@ -241,11 +242,24 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // LEDDevErr
+            // 
+            this.LEDDevErr.BackColor = System.Drawing.Color.Transparent;
+            this.LEDDevErr.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LEDDevErr.LED_Brightness = MfgControl.AdvancedHMI.Controls.SimpleLED.LED_Bri.Brighter;
+            this.LEDDevErr.Location = new System.Drawing.Point(339, 610);
+            this.LEDDevErr.MaximumSize = new System.Drawing.Size(360, 360);
+            this.LEDDevErr.MinimumSize = new System.Drawing.Size(30, 30);
+            this.LEDDevErr.Name = "LEDDevErr";
+            this.LEDDevErr.Size = new System.Drawing.Size(47, 47);
+            this.LEDDevErr.TabIndex = 18;
+            // 
             // MiniPageMikroSRZ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.LEDDevErr);
             this.Controls.Add(this.btnToSensorsInfoList);
             this.Controls.Add(this.LEDGroundAlarm);
             this.Controls.Add(this.label10);
@@ -292,5 +306,6 @@
         private MfgControl.AdvancedHMI.Controls.SimpleLED LEDGroundAlarm;
         private System.Windows.Forms.Button btnToSensorsInfoList;
         private System.Windows.Forms.Timer timer1;
+        private MfgControl.AdvancedHMI.Controls.SimpleLED LEDDevErr;
     }
 }
