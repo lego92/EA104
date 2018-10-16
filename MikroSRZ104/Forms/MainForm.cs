@@ -169,19 +169,33 @@ namespace MikroSRZ104
 
         public void ConnectCycle()
         {
-            while (!stopThread)
+            while (true)
             {
                 foreach (var item in mikroSRZArray)
                 {
-                    if (!item.ConnectionStatus)/////!!!!!!не меняется!!!!!!!!////////
+                    if (stopThread)
                     {
-                        item.Connect();
+                        break;                        
                     }
+                    else
+                    {
+                        if (!item.ConnectionStatus)
+                        {
+                            item.Connect();
+                        }
+                    }                
+                    
                 }
 
-                Thread.Sleep(5000);
+                if (stopThread)
+                {
+                    break;
+                }
+                else
+                {
+                    Thread.Sleep(5000);
+                }
             }
-
         }
 
         private void btnExitApp_Click(object sender, EventArgs e)

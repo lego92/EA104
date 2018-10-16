@@ -316,19 +316,13 @@ namespace MikroSRZ104
         {
             switch (connectionEvent)
             {
-                case ConnectionEvent.OPENED:
-                    if (Con.IsRunning)
-                    {
+                case ConnectionEvent.OPENED:                    
                         this.StatusChanged("Активно");
-                        ConnectionStatus = true;
-                    }
+                        ConnectionStatus = true;                    
                     break;
-                case ConnectionEvent.CLOSED:
-                    if (!Con.IsRunning)
-                    {
+                case ConnectionEvent.CLOSED:                    
                         this.StatusChanged("Неактивно");
-                        ConnectionStatus = false;
-                    }
+                        ConnectionStatus = false;                    
                     break;
                 case ConnectionEvent.LOST:
                     break;
