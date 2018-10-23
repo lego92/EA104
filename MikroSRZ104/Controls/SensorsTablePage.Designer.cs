@@ -39,6 +39,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnGoToMainForm = new System.Windows.Forms.Button();
             this.sensorNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sensorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sensorResistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +48,6 @@
             this.sensorComErr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sensorCalcErr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sensorHighNoiseLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnGoToMainForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,15 +80,26 @@
             this.sensorCalcErr,
             this.sensorHighNoiseLevel});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dataGridView1.Location = new System.Drawing.Point(72, 41);
+            this.dataGridView1.Location = new System.Drawing.Point(105, 41);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.RowTemplate.Height = 50;
             this.dataGridView1.RowTemplate.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1648, 550);
+            this.dataGridView1.Size = new System.Drawing.Size(1595, 550);
             this.dataGridView1.TabIndex = 2;
+            // 
+            // btnGoToMainForm
+            // 
+            this.btnGoToMainForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnGoToMainForm.Location = new System.Drawing.Point(821, 609);
+            this.btnGoToMainForm.Name = "btnGoToMainForm";
+            this.btnGoToMainForm.Size = new System.Drawing.Size(176, 55);
+            this.btnGoToMainForm.TabIndex = 3;
+            this.btnGoToMainForm.Text = "На главный экран";
+            this.btnGoToMainForm.UseVisualStyleBackColor = true;
+            this.btnGoToMainForm.Click += new System.EventHandler(this.btnGoToMainForm_Click);
             // 
             // sensorNumber
             // 
@@ -97,6 +108,7 @@
             this.sensorNumber.HeaderText = "Номер";
             this.sensorNumber.Name = "sensorNumber";
             this.sensorNumber.ReadOnly = true;
+            this.sensorNumber.Width = 130;
             // 
             // sensorName
             // 
@@ -105,7 +117,7 @@
             this.sensorName.HeaderText = "Имя";
             this.sensorName.Name = "sensorName";
             this.sensorName.ReadOnly = true;
-            this.sensorName.Width = 220;
+            this.sensorName.Width = 205;
             // 
             // sensorResistance
             // 
@@ -114,7 +126,7 @@
             this.sensorResistance.HeaderText = "Сопротивление, кОм";
             this.sensorResistance.Name = "sensorResistance";
             this.sensorResistance.ReadOnly = true;
-            this.sensorResistance.Width = 220;
+            this.sensorResistance.Width = 250;
             // 
             // insulationDrop
             // 
@@ -123,7 +135,7 @@
             this.insulationDrop.HeaderText = "Состояние изоляции";
             this.insulationDrop.Name = "insulationDrop";
             this.insulationDrop.ReadOnly = true;
-            this.insulationDrop.Width = 225;
+            this.insulationDrop.Width = 220;
             // 
             // sensorVoltagePresence
             // 
@@ -132,7 +144,7 @@
             this.sensorVoltagePresence.HeaderText = "Наличие напряжения";
             this.sensorVoltagePresence.Name = "sensorVoltagePresence";
             this.sensorVoltagePresence.ReadOnly = true;
-            this.sensorVoltagePresence.Width = 250;
+            this.sensorVoltagePresence.Width = 230;
             // 
             // sensorComErr
             // 
@@ -151,7 +163,7 @@
             this.sensorCalcErr.HeaderText = "Статус измерения";
             this.sensorCalcErr.Name = "sensorCalcErr";
             this.sensorCalcErr.ReadOnly = true;
-            this.sensorCalcErr.Width = 200;
+            this.sensorCalcErr.Width = 205;
             // 
             // sensorHighNoiseLevel
             // 
@@ -160,18 +172,7 @@
             this.sensorHighNoiseLevel.HeaderText = "Уровень помех";
             this.sensorHighNoiseLevel.Name = "sensorHighNoiseLevel";
             this.sensorHighNoiseLevel.ReadOnly = true;
-            this.sensorHighNoiseLevel.Width = 200;
-            // 
-            // btnGoToMainForm
-            // 
-            this.btnGoToMainForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnGoToMainForm.Location = new System.Drawing.Point(821, 609);
-            this.btnGoToMainForm.Name = "btnGoToMainForm";
-            this.btnGoToMainForm.Size = new System.Drawing.Size(176, 55);
-            this.btnGoToMainForm.TabIndex = 3;
-            this.btnGoToMainForm.Text = "На главный экран";
-            this.btnGoToMainForm.UseVisualStyleBackColor = true;
-            this.btnGoToMainForm.Click += new System.EventHandler(this.btnGoToMainForm_Click);
+            this.sensorHighNoiseLevel.Width = 180;
             // 
             // SensorsTablePage
             // 
@@ -189,6 +190,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnGoToMainForm;
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorName;
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorResistance;
@@ -197,6 +199,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorComErr;
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorCalcErr;
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorHighNoiseLevel;
-        private System.Windows.Forms.Button btnGoToMainForm;
     }
 }
