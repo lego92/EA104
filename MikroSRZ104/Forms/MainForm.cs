@@ -14,6 +14,7 @@ using lib60870.CS104;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using MikroSRZ104.Controls;
 
 namespace MikroSRZ104
 {
@@ -28,7 +29,6 @@ namespace MikroSRZ104
     delegate void ComboBoxUpdaterDelegate(ComboBox combobox, string name);
     public delegate void MikroSRZDataChangedDelegate(string fieldname, object value);
     public delegate void SensorDataChangedDelegate(int number, string fieldname, object value);
-    public delegate void StatusChangedDelegate(string status);
     public delegate void DeviceErrorDelegate(bool IsError);
 
 
@@ -38,8 +38,8 @@ namespace MikroSRZ104
         MiniPageMikroSRZ[] miniPagesArray;
         //
         MikroSRZ[] mikroSRZArray;
-        //
-        SensorsTableForm[] sensorTableFormsArray;
+        //        
+        SensorsTablePage[] sensorTablePagesArray; 
         //
         Thread workerThread = null;
         //
@@ -69,7 +69,7 @@ namespace MikroSRZ104
 
                 mikroSRZArray = new MikroSRZ[devicesCount];
                 miniPagesArray = new MiniPageMikroSRZ[devicesCount];
-                sensorTableFormsArray = new SensorsTableForm[devicesCount];
+                sensorTablePagesArray = new SensorsTablePage[devicesCount];
 
                 int i = 0;
 
@@ -98,7 +98,6 @@ namespace MikroSRZ104
                                 sensorsCount++;
                                 break;
                         }
-
                     }
 
                     mikroSRZArray[i] = new MikroSRZ(name, ipAddress, sensorsCount);
@@ -132,34 +131,29 @@ namespace MikroSRZ104
 
                                     }
                                 }
-                                mikroSRZArray[i].CreateSensor(j, factoryNum, sensorName, thresholdMinResistance, thresholdMaxResistance);
+                                mikroSRZArray[i].CreateSensor(j, factoryNum, sensorName, thresholdMinResistance, 
+                                                                                             thresholdMaxResistance);
                                 j++;
                                 break;
                         }
-
                     }
-
                     i++;
-
                 }
-
-
+                
                 int locationX = 0;
 
                 for (int k = 0; k < mikroSRZArray.Length; k++)
                 {
-                    sensorTableFormsArray[k] = new SensorsTableForm(mikroSRZArray[k].Sensors);
-                    mikroSRZArray[k].Subscribe(sensorTableFormsArray[k]);
-                    miniPagesArray[k] = new MiniPageMikroSRZ(mikroSRZArray[k].Name,sensorTableFormsArray[k], new Point(locationX, 0));
-                    this.Controls.Add(miniPagesArray[k]);
+                    sensorTablePagesArray[k] = new SensorsTablePage(mikroSRZArray[k].Sensors);
+                    mikroSRZArray[k].Subscribe(sensorTablePagesArray[k]);
+                    miniPagesArray[k] = new MiniPageMikroSRZ(mikroSRZArray[k].Name,sensorTablePagesArray[k], 
+                                                                                         new Point(locationX, 0));
+                    Controls.Add(miniPagesArray[k]);
+                    Controls.Add(sensorTablePagesArray[k]);
                     locationX += miniPagesArray[k].Size.Width;
 
-                    mikroSRZArray[k].StatusChanged += miniPagesArray[k].StatusChanger;
-                    mikroSRZArray[k].Changed += miniPagesArray[k].Method;
-                    mikroSRZArray[k].DevErrHappened += miniPagesArray[k].ErrorHandler;
-
+                    mikroSRZArray[k].DataChanged += miniPagesArray[k].Method;
                 }
-
 
                 workerThread = new Thread(ConnectCycle);
                 workerThread.Start();
@@ -197,11 +191,7 @@ namespace MikroSRZ104
                 }
             }
         }
-
-        private void btnExitApp_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {

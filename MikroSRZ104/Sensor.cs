@@ -28,7 +28,7 @@ namespace MikroSRZ104
     
     public class Sensor
     {
-        public event SensorDataChangedDelegate Changed;
+        public event SensorDataChangedDelegate DataChanged;
 
         public int Number { get; set; }
 
@@ -64,11 +64,11 @@ namespace MikroSRZ104
         public Sensor(string factorynum, string name, int number, double thresholdMinResistance, 
                                                                           double thresholdMaxResistance)
         {
-            this.FactoryNumber = factorynum;
-            this.Name = name;
-            this.Number = number;
-            this.ThresholdMinResistance = thresholdMinResistance;
-            this.ThresholdMaxResistance = thresholdMaxResistance;                            
+            FactoryNumber = factorynum;
+            Name = name;
+            Number = number;
+            ThresholdMinResistance = thresholdMinResistance;
+            ThresholdMaxResistance = thresholdMaxResistance;                            
         }
 
         public object GetValueByName(object aParent, string aPropertyName)
@@ -77,8 +77,7 @@ namespace MikroSRZ104
             if (property != null)
                 return property.GetValue(aParent, null);
 
-            return null;
-                        
+            return null;                        
         }
 
         public void SetValueByName(object aParent, string aPropertyName, object aValue)
@@ -87,10 +86,8 @@ namespace MikroSRZ104
             if (property != null)
             {
                 property.SetValue(aParent, aValue, null);
-                this.Changed(this.Number, aPropertyName, aValue);
-            }
-                
+                DataChanged(Number, aPropertyName, aValue);
+            }                
         }
-
     }
 }

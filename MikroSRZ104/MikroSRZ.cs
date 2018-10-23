@@ -10,11 +10,11 @@ using System.Reflection;
 using System.Windows.Forms;
 using System.Timers;
 using System.Threading;
+using MikroSRZ104.Controls;
 
 
 namespace MikroSRZ104
 {
-
     public enum SPadr
     {
         IsPrelimAlarm = 66525,
@@ -43,12 +43,9 @@ namespace MikroSRZ104
         CapacityOfNetwork = 851974
     }
 
-
     public class MikroSRZ
     {
-        public event MikroSRZDataChangedDelegate Changed;
-        public event StatusChangedDelegate StatusChanged;
-        public event DeviceErrorDelegate DevErrHappened;
+        public event MikroSRZDataChangedDelegate DataChanged;
 
         private struct SinglePoint
         {
@@ -92,19 +89,7 @@ namespace MikroSRZ104
 
         public bool IsDataRecieved { get; set; } = false;
 
-        public bool DeviceError { get; set; } = false;
-
-        //public bool DeviceError
-        //{
-        //    get
-        //    {
-
-        //    }
-        //    set
-        //    {
-
-        //    }
-        //}
+        public bool DeviceError { get; set; } = false;        
 
         public Sensor[] Sensors;
 
@@ -194,9 +179,9 @@ namespace MikroSRZ104
 
         public MikroSRZ(string name, string ipAddress, int numberOfSensors)
         {
-            this.Name = name;
-            this.IPAddress = ipAddress;
-            this.Sensors = new Sensor[numberOfSensors];
+            Name = name;
+            IPAddress = ipAddress;
+            Sensors = new Sensor[numberOfSensors];
 
 
             for (int i = 0; i < SParray247.GetLength(0); i++)
@@ -234,21 +219,7 @@ namespace MikroSRZ104
             deviceErrorTimer.Elapsed += new ElapsedEventHandler(Ticker);
 
             deviceErrorTimer.Enabled = true;
-        }
-
-        //public void timer()
-        //{
-        //    deviceErrorTimer = new System.Timers.Timer(5000);
-
-        //    deviceErrorTimer.Elapsed += new ElapsedEventHandler(Ticker);
-
-        //    deviceErrorTimer.Enabled = true;
-
-        //    while (true)
-        //    {
-
-        //    }
-        //}
+        }                
 
         public void Ticker(object sender, EventArgs e)
         {
@@ -257,14 +228,12 @@ namespace MikroSRZ104
                 IsDataRecieved = false;
                 if (DeviceError)
                 {
-                    DeviceError = false;
-                    DevErrHappened(false);
+                    SetValueByName(this, "DeviceError", false);                   
                 }
             }
             else if (ConnectionStatus)            
             {
-                DeviceError = true;
-                DevErrHappened(true);
+                SetValueByName(this, "DeviceError", true);
             }
         }
 
@@ -316,26 +285,21 @@ namespace MikroSRZ104
         {
             switch (connectionEvent)
             {
-                case ConnectionEvent.OPENED:                    
-                        this.StatusChanged("Активно");
-                        ConnectionStatus = true;                    
+                case ConnectionEvent.OPENED:
+                    SetValueByName(this, "ConnectionStatus", true);                                           
                     break;
-                case ConnectionEvent.CLOSED:                    
-                        this.StatusChanged("Неактивно");
-                        ConnectionStatus = false;                    
-                    break;
-                case ConnectionEvent.LOST:
-                    break;
+                case ConnectionEvent.CLOSED:
+                    SetValueByName(this, "ConnectionStatus", false);
+                    break;               
             }
         }
 
         private bool asduReceivedHandler(object parameter, ASDU asdu)
         {
+            IsDataRecieved = true;
 
             if (asdu.TypeId == TypeID.M_SP_NA_1)
-            {
-                IsDataRecieved = true;
-
+            {      
                 for (int i = 0; i < asdu.NumberOfElements; i++)
                 {
                     var val = (SinglePointInformation)asdu.GetElement(i);
@@ -353,7 +317,6 @@ namespace MikroSRZ104
                             {
                                 Sensors[index].SetValueByName(Sensors[index], Enum.GetName(typeof(SensorSPadr),
                                                          SParray247[j, index].address - index), SParray247[j, index].value);
-
                             }
                             break;
                         }
@@ -377,11 +340,8 @@ namespace MikroSRZ104
             }           
 
             else if (asdu.TypeId == TypeID.M_ME_NC_1)
-            {
-
-                IsDataRecieved = true;
-               
-                for (int i = 0; i < asdu.NumberOfElements; i++)
+            {                
+               for (int i = 0; i < asdu.NumberOfElements; i++)
                 {
                     var mfv = (MeasuredValueShort)asdu.GetElement(i);
 
@@ -439,15 +399,15 @@ namespace MikroSRZ104
             if (property != null)
             {
                 property.SetValue(aParent, aValue, null);
-                this.Changed(aPropertyName, aValue);
+                DataChanged(aPropertyName, aValue);
             }
         }
 
-        public void Subscribe(SensorsTableForm f)
+        public void Subscribe(SensorsTablePage sensorsTablePage)
         {
             for (int i = 0; i < Sensors.Length; i++)
             {
-                this.Sensors[i].Changed += f.Method;
+                Sensors[i].DataChanged += sensorsTablePage.Method;
             }
         }
     }

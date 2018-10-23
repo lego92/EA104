@@ -1,13 +1,13 @@
-﻿namespace MikroSRZ104
+﻿namespace MikroSRZ104.Controls
 {
-    partial class SensorsTableForm
+    partial class SensorsTablePage
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,10 +20,10 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -38,7 +38,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.sensorNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sensorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,19 +47,9 @@
             this.sensorComErr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sensorCalcErr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sensorHighNoiseLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnGoToMainForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(865, 608);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(176, 55);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "На главный экран";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -91,7 +80,7 @@
             this.sensorCalcErr,
             this.sensorHighNoiseLevel});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dataGridView1.Location = new System.Drawing.Point(79, 33);
+            this.dataGridView1.Location = new System.Drawing.Point(72, 41);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -99,7 +88,7 @@
             this.dataGridView1.RowTemplate.Height = 50;
             this.dataGridView1.RowTemplate.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1648, 550);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.TabIndex = 2;
             // 
             // sensorNumber
             // 
@@ -173,19 +162,25 @@
             this.sensorHighNoiseLevel.ReadOnly = true;
             this.sensorHighNoiseLevel.Width = 200;
             // 
-            // Form4
+            // btnGoToMainForm
+            // 
+            this.btnGoToMainForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnGoToMainForm.Location = new System.Drawing.Point(821, 609);
+            this.btnGoToMainForm.Name = "btnGoToMainForm";
+            this.btnGoToMainForm.Size = new System.Drawing.Size(176, 55);
+            this.btnGoToMainForm.TabIndex = 3;
+            this.btnGoToMainForm.Text = "На главный экран";
+            this.btnGoToMainForm.UseVisualStyleBackColor = true;
+            this.btnGoToMainForm.Click += new System.EventHandler(this.btnGoToMainForm_Click);
+            // 
+            // SensorsTablePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1860, 684);
-            this.ControlBox = false;
+            this.Controls.Add(this.btnGoToMainForm);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(30, 190);
-            this.Name = "Form4";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Form4";
+            this.Name = "SensorsTablePage";
+            this.Size = new System.Drawing.Size(1860, 684);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -193,7 +188,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorName;
@@ -203,5 +197,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorComErr;
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorCalcErr;
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorHighNoiseLevel;
+        private System.Windows.Forms.Button btnGoToMainForm;
     }
 }

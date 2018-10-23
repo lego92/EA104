@@ -12,85 +12,114 @@ using lib60870;
 using lib60870.CS101;
 using lib60870.CS104;
 using MfgControl.AdvancedHMI.Controls;
+using MikroSRZ104.Controls;
 
 namespace MikroSRZ104
 {
     public partial class MiniPageMikroSRZ : UserControl
     {
-        SensorsTableForm ff;       
+        SensorsTablePage sensorTablePage;
 
-        public MiniPageMikroSRZ(string name, SensorsTableForm f, Point location)
+        public MiniPageMikroSRZ(string name, SensorsTablePage sTP, Point location)
         {
             InitializeComponent();
 
-            ff = f;
+            sensorTablePage = sTP;
 
             lblName.Text = name;
 
-            this.Location = location;                    
+            this.Location = location;
 
         }
-        
+
         public void Method(string fieldname, object value)
         {
             switch (fieldname)
             {
                 case "VoltageOnMainBuses":
-                    LabelUpdater(lblVoltage, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
+
+                    LabelUpdater(lblValueVoltage, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
                     break;
+
                 case "ResistanceOfPositivePole":
-                    LabelUpdater(lblPositiveResistance, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
-                    break;
-                case "ResistanceOfNegativePole":
-                    LabelUpdater(lblNegativeResistance, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
-                    break;
-                case "ResistanceOfMainBusesAndBattery":
+
                     if ((double)value >= 16000)
                     {
-                        LabelUpdater(lblResistance, "Нет данных", Color.Black);
+                        LabelUpdater(lblValuePositiveResistance, "Нет данных", Color.Black);
                     }
                     else
                     {
-                        LabelUpdater(lblResistance, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
+                        LabelUpdater(lblValuePositiveResistance, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
                     }
                     break;
+
+                case "ResistanceOfNegativePole":
+
+                    if ((double)value >= 16000)
+                    {
+                        LabelUpdater(lblTextNegativeResistance, "Нет данных", Color.Black);
+                    }
+                    else
+                    {
+                        LabelUpdater(lblTextNegativeResistance, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
+                    }
+                    break;
+
+                case "ResistanceOfMainBusesAndBattery":
+
+                    if ((double)value >= 16000)
+                    {
+                        LabelUpdater(lblValueNetworkResistance, "Нет данных", Color.Black);
+                    }
+                    else
+                    {
+                        LabelUpdater(lblValueNetworkResistance, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
+                    }
+                    break;
+
                 case "CapacityOfNetwork":
+
                     if ((double)value > 220)
                     {
-                        LabelUpdater(lblCapacitance, "Нет данных", Color.Black);
+                        LabelUpdater(lblValueCapacitance, "Нет данных", Color.Black);
                     }
                     else
                     {
-                        LabelUpdater(lblCapacitance, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
+                        LabelUpdater(lblValueCapacitance, Convert.ToString(Math.Round((double)value, 3)), Color.Black);
                     }
                     break;
+
                 case "IsSensorsCommunicationError":
+
                     LEDUpdater(LEDIsCommunicationError, (bool)value);
                     break;
+
                 case "IsAlarm":
+
                     LEDUpdater(LEDGroundAlarm, (bool)value);
                     break;
 
+                case "ConnectionStatus":
+
+                    switch ((bool)value)
+                    {
+                        case true:
+                            LabelUpdater(lblStatusValue, "Активно", Color.Green);
+                            break;
+                        case false:
+                            LabelUpdater(lblStatusValue, "Неактивно", Color.Red);
+                            break;
+                    }
+                    break;
+
+                case "DeviceError":
+
+                    LEDUpdater(LEDDevErr, (bool)value);
+                    break;
             }
         }
 
-        public void StatusChanger(string status)
-        {
-            switch (status)
-            {
-                case "Активно":
-                    LabelUpdater(label8, status, Color.Green);
-                    break;
-                case "Неактивно":
-                    LabelUpdater(label8, status, Color.Red);
-                    break;
-            }
-        }
 
-        public void ErrorHandler(bool IsError)
-        {
-            LEDUpdater(LEDDevErr, IsError);
-        }
 
         private void LabelUpdater(Label label, string labelstr, Color color)
         {
@@ -115,24 +144,23 @@ namespace MikroSRZ104
             }
             else
             {
+                if (value)
+                {
+                    led.LED_Color = SimpleLED.LED_Col.Red;
+                }
+                else
+                {
+                    led.LED_Color = SimpleLED.LED_Col.White;
+                }
                 led.Value = value;
             }
         }
 
-        private void button123_Click(object sender, EventArgs e)
+        private void btnToSensorsInfoList_Click(object sender, EventArgs e)
         {
-            //ff.Location = new Point(0, 0);
-            ff.ShowDialog();
-        }
-
-        private void lblResistance_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
+            sensorTablePage.Show();
+            sensorTablePage.BringToFront();
+            sensorTablePage.Enabled = true;
         }
     }
 }

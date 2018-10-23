@@ -1,36 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MfgControl.AdvancedHMI.Controls;
 
-namespace MikroSRZ104
+namespace MikroSRZ104.Controls
 {
-
-    public partial class SensorsTableForm : Form
+    public partial class SensorsTablePage : UserControl
     {
-        public SensorsTableForm(Sensor[] sensors)
+        double[] thresholdSensorsMinResistance;
+
+        double[] thresholdSensorsMaxResistance;
+
+        public SensorsTablePage(Sensor[] sensors)
         {
             InitializeComponent();
 
-            var a = dataGridView1.Columns[3].DataGridView;
+            this.Hide();
+
+            this.Enabled = false;
+
+            thresholdSensorsMinResistance = new double[sensors.Length];
+
+            thresholdSensorsMaxResistance = new double[sensors.Length];
 
             for (int i = 0; i < sensors.Length; i++)
             {
                 dataGridView1.Rows.Add();
                 dataGridView1.Rows[i].Cells["sensorNumber"].Value = sensors[i].Number;
                 dataGridView1.Rows[i].Cells["sensorName"].Value = sensors[i].Name;
+                thresholdSensorsMinResistance[i] = sensors[i].ThresholdMinResistance;
+                thresholdSensorsMaxResistance[i] = sensors[i].ThresholdMaxResistance;
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         public void Method(int number, string fieldname, object value)
         {
@@ -38,34 +44,22 @@ namespace MikroSRZ104
             {
                 case "Resistance":
 
-                    //if ((double)value > 10000)
-                    //{
-                    //    dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = "Норма";
-                    //    dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Норма";
-                    //    dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.White;
-                    //}
-                    //else
-                    //{
-                    //    if ((double)value < 20)
-                    //    {
-                    //        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Снижена";
-                    //        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.Orange;
-                    //    }
-                    //    else
-                    //    {
-                    //        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Норма";
-                    //        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.White;
-                    //    }
-
-                    //    dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = Math.Round((double)value, 3);
-                    //}
-                    //break;
-
-                    dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = Convert.ToString(Math.Round((double)value, 3));
-
+                    if ((double)value > thresholdSensorsMinResistance[number - 1])
+                    {
+                        dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = "Норма";
+                        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Норма";
+                        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.White;
+                    }
+                    else
+                    {
+                        dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = Math.Round((double)value, 3);
+                        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Снижена";
+                        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.Orange;
+                    }
                     break;
 
                 case "IsCommunicationError":
+
                     if ((bool)value == true)
                     {
                         dataGridView1.Rows[number - 1].Cells["sensorComErr"].Style.BackColor = Color.Orange;
@@ -79,6 +73,7 @@ namespace MikroSRZ104
                     break;
 
                 case "IsCalculationImpossible":
+
                     if ((bool)value == true)
                     {
                         dataGridView1.Rows[number - 1].Cells["sensorCalcErr"].Style.BackColor = Color.Orange;
@@ -92,6 +87,7 @@ namespace MikroSRZ104
                     break;
 
                 case "IsNoVoltage":
+
                     if ((bool)value == true)
                     {
                         dataGridView1.Rows[number - 1].Cells["sensorVoltagePresence"].Style.BackColor = Color.Orange;
@@ -105,6 +101,7 @@ namespace MikroSRZ104
                     break;
 
                 case "IsHighNoiseLevel":
+
                     if ((bool)value == true)
                     {
                         dataGridView1.Rows[number - 1].Cells["sensorHighNoiseLevel"].Style.BackColor = Color.Orange;
@@ -120,22 +117,29 @@ namespace MikroSRZ104
             }
 
             string isComErr = (string)dataGridView1.Rows[number - 1].Cells["sensorComErr"].Value;
+
             string isCalErr = (string)dataGridView1.Rows[number - 1].Cells["sensorCalcErr"].Value;
 
 
             if (isComErr == "Ошибка" || isCalErr == "Ошибка")
             {
-                for (int i = 2; i < dataGridView1.Rows[number - 1].Cells.Count; i++)
+                for (int i = 2; i < dataGridView1.Columns.Count; i++)
                 {
-                    string val = (string)dataGridView1.Rows[number - 1].Cells[i].Value;
+                    string val = dataGridView1.Columns[i].Name;
 
-                    if (val != "Ошибка")
+                    if (val != "sensorComErr" && val != "sensorCalcErr")
                     {
                         dataGridView1.Rows[number - 1].Cells[i].Style.BackColor = Color.White;
                         dataGridView1.Rows[number - 1].Cells[i].Value = "-";
                     }
                 }
             }
+        }
+
+        private void btnGoToMainForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Enabled = false;
         }
     }
 }
