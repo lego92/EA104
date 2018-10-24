@@ -35,19 +35,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnGoToMainForm = new System.Windows.Forms.Button();
             this.sensorNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sensorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sensorFacNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sensorSwitchDevice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sensorCircuitLoad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sensorResistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.insulationDrop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sensorVoltagePresence = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sensorComErr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sensorCalcErr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sensorHighNoiseLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,13 +68,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sensorNumber,
-            this.sensorName,
+            this.sensorFacNumber,
+            this.sensorSwitchDevice,
+            this.sensorCircuitLoad,
             this.sensorResistance,
-            this.insulationDrop,
-            this.sensorVoltagePresence,
             this.sensorComErr,
-            this.sensorCalcErr,
-            this.sensorHighNoiseLevel});
+            this.sensorCalcErr});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
             this.dataGridView1.Location = new System.Drawing.Point(105, 41);
             this.dataGridView1.Name = "dataGridView1";
@@ -110,14 +105,28 @@
             this.sensorNumber.ReadOnly = true;
             this.sensorNumber.Width = 130;
             // 
-            // sensorName
+            // sensorFacNumber
+            // 
+            this.sensorFacNumber.HeaderText = "Заводской номер";
+            this.sensorFacNumber.Name = "sensorFacNumber";
+            this.sensorFacNumber.ReadOnly = true;
+            this.sensorFacNumber.Width = 200;
+            // 
+            // sensorSwitchDevice
             // 
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sensorName.DefaultCellStyle = dataGridViewCellStyle4;
-            this.sensorName.HeaderText = "Имя";
-            this.sensorName.Name = "sensorName";
-            this.sensorName.ReadOnly = true;
-            this.sensorName.Width = 205;
+            this.sensorSwitchDevice.DefaultCellStyle = dataGridViewCellStyle4;
+            this.sensorSwitchDevice.HeaderText = "Ком. аппарат";
+            this.sensorSwitchDevice.Name = "sensorSwitchDevice";
+            this.sensorSwitchDevice.ReadOnly = true;
+            this.sensorSwitchDevice.Width = 205;
+            // 
+            // sensorCircuitLoad
+            // 
+            this.sensorCircuitLoad.HeaderText = "Потребитель";
+            this.sensorCircuitLoad.Name = "sensorCircuitLoad";
+            this.sensorCircuitLoad.ReadOnly = true;
+            this.sensorCircuitLoad.Width = 150;
             // 
             // sensorResistance
             // 
@@ -128,28 +137,10 @@
             this.sensorResistance.ReadOnly = true;
             this.sensorResistance.Width = 250;
             // 
-            // insulationDrop
-            // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.insulationDrop.DefaultCellStyle = dataGridViewCellStyle6;
-            this.insulationDrop.HeaderText = "Состояние изоляции";
-            this.insulationDrop.Name = "insulationDrop";
-            this.insulationDrop.ReadOnly = true;
-            this.insulationDrop.Width = 220;
-            // 
-            // sensorVoltagePresence
-            // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sensorVoltagePresence.DefaultCellStyle = dataGridViewCellStyle7;
-            this.sensorVoltagePresence.HeaderText = "Наличие напряжения";
-            this.sensorVoltagePresence.Name = "sensorVoltagePresence";
-            this.sensorVoltagePresence.ReadOnly = true;
-            this.sensorVoltagePresence.Width = 230;
-            // 
             // sensorComErr
             // 
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sensorComErr.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sensorComErr.DefaultCellStyle = dataGridViewCellStyle6;
             this.sensorComErr.HeaderText = "Статус связи";
             this.sensorComErr.Name = "sensorComErr";
             this.sensorComErr.ReadOnly = true;
@@ -158,21 +149,12 @@
             // 
             // sensorCalcErr
             // 
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sensorCalcErr.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sensorCalcErr.DefaultCellStyle = dataGridViewCellStyle7;
             this.sensorCalcErr.HeaderText = "Статус измерения";
             this.sensorCalcErr.Name = "sensorCalcErr";
             this.sensorCalcErr.ReadOnly = true;
             this.sensorCalcErr.Width = 205;
-            // 
-            // sensorHighNoiseLevel
-            // 
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sensorHighNoiseLevel.DefaultCellStyle = dataGridViewCellStyle10;
-            this.sensorHighNoiseLevel.HeaderText = "Уровень помех";
-            this.sensorHighNoiseLevel.Name = "sensorHighNoiseLevel";
-            this.sensorHighNoiseLevel.ReadOnly = true;
-            this.sensorHighNoiseLevel.Width = 180;
             // 
             // SensorsTablePage
             // 
@@ -192,12 +174,11 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnGoToMainForm;
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sensorName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sensorFacNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sensorSwitchDevice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sensorCircuitLoad;
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorResistance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn insulationDrop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sensorVoltagePresence;
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorComErr;
         private System.Windows.Forms.DataGridViewTextBoxColumn sensorCalcErr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sensorHighNoiseLevel;
     }
 }

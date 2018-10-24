@@ -15,8 +15,7 @@ namespace MikroSRZ104
     {
         IsBatteryDischarging = 66534,
         IsNoVoltage = 66781,
-        IsCalculationImpossible = 67275,     
-        IsHighNoiseLevel = 69014,
+        IsCalculationImpossiblel = 69014,
         IsCommunicationError = 69509
     }
 
@@ -32,9 +31,11 @@ namespace MikroSRZ104
 
         public int Number { get; set; }
 
-        public string Name { get; set; }
-
         public string FactoryNumber { get; set; }
+
+        public string SwitchingDevice { get; set; }
+
+        public string CircuitLoad { get; set; }
 
         // отдельный класс для токового?????
         public bool IsCurrentSensor { get; set; } = false;
@@ -61,11 +62,12 @@ namespace MikroSRZ104
 
         public bool IsCommunicationError { get; set; }
 
-        public Sensor(string factorynum, string name, int number, double thresholdMinResistance, 
+        public Sensor(string factoryNum, string switchDev, string circuitLoad, int number, double thresholdMinResistance, 
                                                                           double thresholdMaxResistance)
         {
-            FactoryNumber = factorynum;
-            Name = name;
+            FactoryNumber = factoryNum;
+            SwitchingDevice = switchDev;
+            CircuitLoad = circuitLoad;   
             Number = number;
             ThresholdMinResistance = thresholdMinResistance;
             ThresholdMaxResistance = thresholdMaxResistance;                            

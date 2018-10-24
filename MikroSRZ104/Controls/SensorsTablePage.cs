@@ -31,7 +31,9 @@ namespace MikroSRZ104.Controls
             {
                 dataGridView1.Rows.Add();
                 dataGridView1.Rows[i].Cells["sensorNumber"].Value = sensors[i].Number;
-                dataGridView1.Rows[i].Cells["sensorName"].Value = sensors[i].Name;
+                dataGridView1.Rows[i].Cells["sensorFacNumber"].Value = sensors[i].FactoryNumber;
+                dataGridView1.Rows[i].Cells["sensorSwitchDevice"].Value = sensors[i].SwitchingDevice;
+                dataGridView1.Rows[i].Cells["sensorCircuitLoad"].Value = sensors[i].CircuitLoad;
                 thresholdSensorsMinResistance[i] = sensors[i].ThresholdMinResistance;
                 thresholdSensorsMaxResistance[i] = sensors[i].ThresholdMaxResistance;
             }
@@ -47,14 +49,10 @@ namespace MikroSRZ104.Controls
                     if ((double)value > thresholdSensorsMinResistance[number - 1])
                     {
                         dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = "Норма";
-                        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Норма";
-                        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.White;
                     }
                     else
                     {
                         dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = Math.Round((double)value, 3);
-                        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Value = "Снижена";
-                        dataGridView1.Rows[number - 1].Cells["insulationDrop"].Style.BackColor = Color.Orange;
                     }
                     break;
 
@@ -84,35 +82,7 @@ namespace MikroSRZ104.Controls
                         dataGridView1.Rows[number - 1].Cells["sensorCalcErr"].Style.BackColor = Color.White;
                         dataGridView1.Rows[number - 1].Cells["sensorCalcErr"].Value = "Норма";
                     }
-                    break;
-
-                case "IsNoVoltage":
-
-                    if ((bool)value == true)
-                    {
-                        dataGridView1.Rows[number - 1].Cells["sensorVoltagePresence"].Style.BackColor = Color.Orange;
-                        dataGridView1.Rows[number - 1].Cells["sensorVoltagePresence"].Value = "Отсутствует";
-                    }
-                    else
-                    {
-                        dataGridView1.Rows[number - 1].Cells["sensorVoltagePresence"].Style.BackColor = Color.White;
-                        dataGridView1.Rows[number - 1].Cells["sensorVoltagePresence"].Value = "Присутствует";
-                    }
-                    break;
-
-                case "IsHighNoiseLevel":
-
-                    if ((bool)value == true)
-                    {
-                        dataGridView1.Rows[number - 1].Cells["sensorHighNoiseLevel"].Style.BackColor = Color.Orange;
-                        dataGridView1.Rows[number - 1].Cells["sensorHighNoiseLevel"].Value = "Высокий";
-                    }
-                    else
-                    {
-                        dataGridView1.Rows[number - 1].Cells["sensorHighNoiseLevel"].Style.BackColor = Color.White;
-                        dataGridView1.Rows[number - 1].Cells["sensorHighNoiseLevel"].Value = "Норма";
-                    }
-                    break;
+                    break;                
 
             }
 

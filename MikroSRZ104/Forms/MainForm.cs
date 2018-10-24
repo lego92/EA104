@@ -39,7 +39,7 @@ namespace MikroSRZ104
         //
         MikroSRZ[] mikroSRZArray;
         //        
-        SensorsTablePage[] sensorTablePagesArray; 
+        SensorsTablePage[] sensorTablePagesArray;
         //
         Thread workerThread = null;
         //
@@ -54,7 +54,8 @@ namespace MikroSRZ104
 
             if (File.Exists("MikroSRZ104Config.ea"))
             {
-                string name, ipAddress, factoryNum, sensorName;
+                string name, ipAddress, factoryNum, sensorSwitchDev, sensorCircLoad;
+                String[] sensorInfo = new String[3];
                 int sensorsCount;
                 double thresholdMinResistance, thresholdMaxResistance;
 
@@ -75,10 +76,11 @@ namespace MikroSRZ104
 
                 foreach (XmlNode device in rootNode.ChildNodes)
                 {
-                    name = "Имя";
-                    ipAddress = "IP";
-                    factoryNum = "00-000000";
-                    sensorName = "Имя";
+                    name = "";
+                    ipAddress = "";
+                    factoryNum = "";
+                    sensorSwitchDev = "";
+                    sensorCircLoad = "";
                     thresholdMinResistance = 20;
                     thresholdMaxResistance = 200;
 
@@ -126,27 +128,47 @@ namespace MikroSRZ104
                                             break;
 
                                         case "NAME":
-                                            sensorName = item.InnerText;
-                                            break;
 
+                                            sensorInfo = item.InnerText.Split(new char[] { ' ' }, 3,
+                                                                                     StringSplitOptions.RemoveEmptyEntries);
+
+                                            switch (sensorInfo.Length)
+                                            {
+                                                case 1:
+                                                    break;
+                                                case 2:
+                                                    sensorSwitchDev = sensorInfo[1];
+                                                    break;
+                                                case 3:
+                                                    sensorSwitchDev = sensorInfo[1];
+                                                    sensorCircLoad = sensorInfo[2];
+                                                    break;
+                                            }
+
+                                            Array.Clear(sensorInfo, 0, sensorInfo.Length);                                            
+                                            break;
                                     }
+
                                 }
-                                mikroSRZArray[i].CreateSensor(j, factoryNum, sensorName, thresholdMinResistance, 
-                                                                                             thresholdMaxResistance);
+
+                                mikroSRZArray[i].CreateSensor(j, factoryNum, sensorSwitchDev, sensorCircLoad,
+                                                                        thresholdMinResistance, thresholdMaxResistance);
+                                sensorSwitchDev = "";
+                                sensorCircLoad = "";
                                 j++;
                                 break;
                         }
                     }
                     i++;
                 }
-                
+
                 int locationX = 0;
 
                 for (int k = 0; k < mikroSRZArray.Length; k++)
                 {
                     sensorTablePagesArray[k] = new SensorsTablePage(mikroSRZArray[k].Sensors);
                     mikroSRZArray[k].Subscribe(sensorTablePagesArray[k]);
-                    miniPagesArray[k] = new MiniPageMikroSRZ(mikroSRZArray[k].Name,sensorTablePagesArray[k], 
+                    miniPagesArray[k] = new MiniPageMikroSRZ(mikroSRZArray[k].Name, sensorTablePagesArray[k],
                                                                                          new Point(locationX, 0));
                     Controls.Add(miniPagesArray[k]);
                     Controls.Add(sensorTablePagesArray[k]);
@@ -169,7 +191,7 @@ namespace MikroSRZ104
                 {
                     if (stopThread)
                     {
-                        break;                        
+                        break;
                     }
                     else
                     {
@@ -177,8 +199,8 @@ namespace MikroSRZ104
                         {
                             item.Connect();
                         }
-                    }                
-                    
+                    }
+
                 }
 
                 if (stopThread)
@@ -191,7 +213,7 @@ namespace MikroSRZ104
                 }
             }
         }
-        
+
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {

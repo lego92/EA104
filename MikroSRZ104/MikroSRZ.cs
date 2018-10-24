@@ -238,10 +238,10 @@ namespace MikroSRZ104
         }
 
 
-        public void CreateSensor(int index,string factorynum, string name, double thresholdMinResistance, 
-                                                                                    double thresholdMaxResistance)
+        public void CreateSensor(int index,string factorynum, string switchDev,string circuitLoad, 
+                                                     double thresholdMinResistance, double thresholdMaxResistance)
         {
-            Sensors[index] = new Sensor(factorynum, name, index + 1, thresholdMinResistance, thresholdMaxResistance);
+            Sensors[index] = new Sensor(factorynum, switchDev, circuitLoad, index + 1, thresholdMinResistance, thresholdMaxResistance);
         }
 
         public void Connect()
