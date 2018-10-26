@@ -35,6 +35,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnGoToMainForm = new System.Windows.Forms.Button();
             this.sensorNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +60,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -80,17 +82,17 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.RowTemplate.Height = 50;
+            this.dataGridView1.RowTemplate.Height = 80;
             this.dataGridView1.RowTemplate.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1595, 550);
+            this.dataGridView1.Size = new System.Drawing.Size(1600, 657);
             this.dataGridView1.TabIndex = 2;
             // 
             // btnGoToMainForm
             // 
-            this.btnGoToMainForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnGoToMainForm.Location = new System.Drawing.Point(821, 609);
+            this.btnGoToMainForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnGoToMainForm.Location = new System.Drawing.Point(810, 741);
             this.btnGoToMainForm.Name = "btnGoToMainForm";
-            this.btnGoToMainForm.Size = new System.Drawing.Size(176, 55);
+            this.btnGoToMainForm.Size = new System.Drawing.Size(209, 67);
             this.btnGoToMainForm.TabIndex = 3;
             this.btnGoToMainForm.Text = "На главный экран";
             this.btnGoToMainForm.UseVisualStyleBackColor = true;
@@ -98,49 +100,53 @@
             // 
             // sensorNumber
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.sensorNumber.DefaultCellStyle = dataGridViewCellStyle3;
             this.sensorNumber.HeaderText = "Номер";
             this.sensorNumber.Name = "sensorNumber";
             this.sensorNumber.ReadOnly = true;
-            this.sensorNumber.Width = 130;
+            this.sensorNumber.Width = 150;
             // 
             // sensorFacNumber
             // 
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sensorFacNumber.DefaultCellStyle = dataGridViewCellStyle4;
             this.sensorFacNumber.HeaderText = "Заводской номер";
             this.sensorFacNumber.Name = "sensorFacNumber";
             this.sensorFacNumber.ReadOnly = true;
-            this.sensorFacNumber.Width = 200;
+            this.sensorFacNumber.Width = 250;
             // 
             // sensorSwitchDevice
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sensorSwitchDevice.DefaultCellStyle = dataGridViewCellStyle4;
-            this.sensorSwitchDevice.HeaderText = "Ком. аппарат";
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sensorSwitchDevice.DefaultCellStyle = dataGridViewCellStyle5;
+            this.sensorSwitchDevice.HeaderText = "Коммутационный аппарат";
             this.sensorSwitchDevice.Name = "sensorSwitchDevice";
             this.sensorSwitchDevice.ReadOnly = true;
-            this.sensorSwitchDevice.Width = 205;
+            this.sensorSwitchDevice.Width = 300;
             // 
             // sensorCircuitLoad
             // 
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sensorCircuitLoad.DefaultCellStyle = dataGridViewCellStyle6;
             this.sensorCircuitLoad.HeaderText = "Потребитель";
             this.sensorCircuitLoad.Name = "sensorCircuitLoad";
             this.sensorCircuitLoad.ReadOnly = true;
-            this.sensorCircuitLoad.Width = 150;
+            this.sensorCircuitLoad.Width = 250;
             // 
             // sensorResistance
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sensorResistance.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sensorResistance.DefaultCellStyle = dataGridViewCellStyle7;
             this.sensorResistance.HeaderText = "Сопротивление, кОм";
             this.sensorResistance.Name = "sensorResistance";
             this.sensorResistance.ReadOnly = true;
-            this.sensorResistance.Width = 250;
+            this.sensorResistance.Width = 270;
             // 
             // sensorComErr
             // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sensorComErr.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sensorComErr.DefaultCellStyle = dataGridViewCellStyle8;
             this.sensorComErr.HeaderText = "Статус связи";
             this.sensorComErr.Name = "sensorComErr";
             this.sensorComErr.ReadOnly = true;
@@ -149,8 +155,8 @@
             // 
             // sensorCalcErr
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sensorCalcErr.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sensorCalcErr.DefaultCellStyle = dataGridViewCellStyle9;
             this.sensorCalcErr.HeaderText = "Статус измерения";
             this.sensorCalcErr.Name = "sensorCalcErr";
             this.sensorCalcErr.ReadOnly = true;
@@ -163,7 +169,7 @@
             this.Controls.Add(this.btnGoToMainForm);
             this.Controls.Add(this.dataGridView1);
             this.Name = "SensorsTablePage";
-            this.Size = new System.Drawing.Size(1860, 684);
+            this.Size = new System.Drawing.Size(1876, 854);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

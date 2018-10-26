@@ -15,7 +15,7 @@ namespace MikroSRZ104
     {
         IsBatteryDischarging = 66534,
         IsNoVoltage = 66781,
-        IsCalculationImpossiblel = 69014,
+        IsCalculationImpossible = 69014,
         IsCommunicationError = 69509
     }
 
@@ -48,9 +48,9 @@ namespace MikroSRZ104
 
         public double Resistance { get; set; }
 
-        public double ThresholdMinResistance { get; set; }
+        public double ThresholdAlarmResistance { get; set; }
 
-        public double ThresholdMaxResistance { get; set; }
+        public double ThresholdPrelimResistance { get; set; }
 
         public bool IsCalculationImpossible { get; set; }
 
@@ -62,15 +62,15 @@ namespace MikroSRZ104
 
         public bool IsCommunicationError { get; set; }
 
-        public Sensor(string factoryNum, string switchDev, string circuitLoad, int number, double thresholdMinResistance, 
-                                                                          double thresholdMaxResistance)
+        public Sensor(string factoryNum, string switchDev, string circuitLoad, int number, double thresholdAlarmResistance, 
+                                                                          double thresholdPrelimResistance)
         {
             FactoryNumber = factoryNum;
             SwitchingDevice = switchDev;
             CircuitLoad = circuitLoad;   
             Number = number;
-            ThresholdMinResistance = thresholdMinResistance;
-            ThresholdMaxResistance = thresholdMaxResistance;                            
+            ThresholdAlarmResistance = thresholdAlarmResistance;
+            ThresholdPrelimResistance = thresholdPrelimResistance;                            
         }
 
         public object GetValueByName(object aParent, string aPropertyName)

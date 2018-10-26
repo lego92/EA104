@@ -175,7 +175,7 @@ namespace MikroSRZ104
 
         public System.Timers.Timer deviceErrorTimer;
 
-        public Thread timerThread = null;
+        //public Thread timerThread = null;
 
         public MikroSRZ(string name, string ipAddress, int numberOfSensors)
         {
@@ -214,14 +214,14 @@ namespace MikroSRZ104
 
             //timerThread.Start();
 
-            deviceErrorTimer = new System.Timers.Timer(5000);
+            deviceErrorTimer = new System.Timers.Timer(30000);
 
             deviceErrorTimer.Elapsed += new ElapsedEventHandler(Ticker);
 
             deviceErrorTimer.Enabled = true;
         }                
 
-        public void Ticker(object sender, EventArgs e)
+        private void Ticker(object sender, EventArgs e)
         {
             if(IsDataRecieved)
             {
@@ -275,7 +275,7 @@ namespace MikroSRZ104
                     Con.Close();
                 }
             }
-            catch(ConnectionException)
+            catch(Exception e)
             {
 
             }

@@ -85,15 +85,15 @@
             this.lstbxFilesNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lstbxFilesNames.FormattingEnabled = true;
             this.lstbxFilesNames.ItemHeight = 25;
-            this.lstbxFilesNames.Location = new System.Drawing.Point(17, 208);
+            this.lstbxFilesNames.Location = new System.Drawing.Point(23, 251);
             this.lstbxFilesNames.Name = "lstbxFilesNames";
-            this.lstbxFilesNames.Size = new System.Drawing.Size(603, 204);
+            this.lstbxFilesNames.Size = new System.Drawing.Size(591, 254);
             this.lstbxFilesNames.TabIndex = 0;
             // 
             // btnAddConfigFile
             // 
             this.btnAddConfigFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddConfigFile.Location = new System.Drawing.Point(111, 139);
+            this.btnAddConfigFile.Location = new System.Drawing.Point(117, 185);
             this.btnAddConfigFile.Name = "btnAddConfigFile";
             this.btnAddConfigFile.Size = new System.Drawing.Size(167, 40);
             this.btnAddConfigFile.TabIndex = 1;
@@ -108,7 +108,7 @@
             // btnDeleteConfigFile
             // 
             this.btnDeleteConfigFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDeleteConfigFile.Location = new System.Drawing.Point(309, 139);
+            this.btnDeleteConfigFile.Location = new System.Drawing.Point(311, 185);
             this.btnDeleteConfigFile.Name = "btnDeleteConfigFile";
             this.btnDeleteConfigFile.Size = new System.Drawing.Size(167, 40);
             this.btnDeleteConfigFile.TabIndex = 2;
@@ -119,7 +119,7 @@
             // btnNextToTabPage2
             // 
             this.btnNextToTabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnNextToTabPage2.Location = new System.Drawing.Point(242, 553);
+            this.btnNextToTabPage2.Location = new System.Drawing.Point(252, 627);
             this.btnNextToTabPage2.Name = "btnNextToTabPage2";
             this.btnNextToTabPage2.Size = new System.Drawing.Size(100, 37);
             this.btnNextToTabPage2.TabIndex = 3;
@@ -131,7 +131,7 @@
             // 
             this.lblInfoFilesPage1.AutoSize = true;
             this.lblInfoFilesPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblInfoFilesPage1.Location = new System.Drawing.Point(13, 18);
+            this.lblInfoFilesPage1.Location = new System.Drawing.Point(11, 38);
             this.lblInfoFilesPage1.Name = "lblInfoFilesPage1";
             this.lblInfoFilesPage1.Size = new System.Drawing.Size(607, 96);
             this.lblInfoFilesPage1.TabIndex = 4;
@@ -147,7 +147,7 @@
             this.tabControlConfig.Location = new System.Drawing.Point(-3, 1);
             this.tabControlConfig.Name = "tabControlConfig";
             this.tabControlConfig.SelectedIndex = 0;
-            this.tabControlConfig.Size = new System.Drawing.Size(648, 657);
+            this.tabControlConfig.Size = new System.Drawing.Size(648, 787);
             this.tabControlConfig.TabIndex = 5;
             this.tabControlConfig.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControlConfig_Selecting);
             // 
@@ -164,7 +164,7 @@
             this.tabPageConfigFiles.Location = new System.Drawing.Point(4, 25);
             this.tabPageConfigFiles.Name = "tabPageConfigFiles";
             this.tabPageConfigFiles.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageConfigFiles.Size = new System.Drawing.Size(640, 628);
+            this.tabPageConfigFiles.Size = new System.Drawing.Size(640, 758);
             this.tabPageConfigFiles.TabIndex = 0;
             this.tabPageConfigFiles.Text = "Файлы конфигурации";
             // 
@@ -172,7 +172,7 @@
             // 
             this.lblInfoFilesPage2.AutoSize = true;
             this.lblInfoFilesPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblInfoFilesPage2.Location = new System.Drawing.Point(94, 479);
+            this.lblInfoFilesPage2.Location = new System.Drawing.Point(104, 542);
             this.lblInfoFilesPage2.Name = "lblInfoFilesPage2";
             this.lblInfoFilesPage2.Size = new System.Drawing.Size(415, 24);
             this.lblInfoFilesPage2.TabIndex = 5;
@@ -195,14 +195,14 @@
             this.tabPageNames.Location = new System.Drawing.Point(4, 25);
             this.tabPageNames.Name = "tabPageNames";
             this.tabPageNames.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNames.Size = new System.Drawing.Size(640, 628);
+            this.tabPageNames.Size = new System.Drawing.Size(640, 758);
             this.tabPageNames.TabIndex = 2;
             this.tabPageNames.Text = "Наименования устройств";
             // 
             // btnBackToTabPage1
             // 
             this.btnBackToTabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnBackToTabPage1.Location = new System.Drawing.Point(166, 548);
+            this.btnBackToTabPage1.Location = new System.Drawing.Point(170, 663);
             this.btnBackToTabPage1.Name = "btnBackToTabPage1";
             this.btnBackToTabPage1.Size = new System.Drawing.Size(111, 41);
             this.btnBackToTabPage1.TabIndex = 10;
@@ -213,7 +213,7 @@
             // btnNextToTabPage3
             // 
             this.btnNextToTabPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnNextToTabPage3.Location = new System.Drawing.Point(306, 548);
+            this.btnNextToTabPage3.Location = new System.Drawing.Point(310, 663);
             this.btnNextToTabPage3.Name = "btnNextToTabPage3";
             this.btnNextToTabPage3.Size = new System.Drawing.Size(116, 41);
             this.btnNextToTabPage3.TabIndex = 9;
@@ -224,7 +224,7 @@
             // txtbxFourthDeviceName
             // 
             this.txtbxFourthDeviceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtbxFourthDeviceName.Location = new System.Drawing.Point(240, 452);
+            this.txtbxFourthDeviceName.Location = new System.Drawing.Point(240, 534);
             this.txtbxFourthDeviceName.Name = "txtbxFourthDeviceName";
             this.txtbxFourthDeviceName.Size = new System.Drawing.Size(234, 29);
             this.txtbxFourthDeviceName.TabIndex = 8;
@@ -233,7 +233,7 @@
             // 
             this.lblFourthDeviceName.AutoSize = true;
             this.lblFourthDeviceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFourthDeviceName.Location = new System.Drawing.Point(54, 457);
+            this.lblFourthDeviceName.Location = new System.Drawing.Point(54, 539);
             this.lblFourthDeviceName.Name = "lblFourthDeviceName";
             this.lblFourthDeviceName.Size = new System.Drawing.Size(116, 24);
             this.lblFourthDeviceName.TabIndex = 7;
@@ -242,7 +242,7 @@
             // txtbxThirdDeviceName
             // 
             this.txtbxThirdDeviceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtbxThirdDeviceName.Location = new System.Drawing.Point(240, 363);
+            this.txtbxThirdDeviceName.Location = new System.Drawing.Point(240, 413);
             this.txtbxThirdDeviceName.Name = "txtbxThirdDeviceName";
             this.txtbxThirdDeviceName.Size = new System.Drawing.Size(234, 29);
             this.txtbxThirdDeviceName.TabIndex = 6;
@@ -251,7 +251,7 @@
             // 
             this.lblThirdDeviceName.AutoSize = true;
             this.lblThirdDeviceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblThirdDeviceName.Location = new System.Drawing.Point(54, 368);
+            this.lblThirdDeviceName.Location = new System.Drawing.Point(54, 418);
             this.lblThirdDeviceName.Name = "lblThirdDeviceName";
             this.lblThirdDeviceName.Size = new System.Drawing.Size(116, 24);
             this.lblThirdDeviceName.TabIndex = 5;
@@ -260,7 +260,7 @@
             // txtbxSecondDeviceName
             // 
             this.txtbxSecondDeviceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtbxSecondDeviceName.Location = new System.Drawing.Point(240, 276);
+            this.txtbxSecondDeviceName.Location = new System.Drawing.Point(240, 306);
             this.txtbxSecondDeviceName.Name = "txtbxSecondDeviceName";
             this.txtbxSecondDeviceName.Size = new System.Drawing.Size(234, 29);
             this.txtbxSecondDeviceName.TabIndex = 4;
@@ -269,7 +269,7 @@
             // 
             this.lblSecondDeviceName.AutoSize = true;
             this.lblSecondDeviceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSecondDeviceName.Location = new System.Drawing.Point(54, 283);
+            this.lblSecondDeviceName.Location = new System.Drawing.Point(54, 313);
             this.lblSecondDeviceName.Name = "lblSecondDeviceName";
             this.lblSecondDeviceName.Size = new System.Drawing.Size(116, 24);
             this.lblSecondDeviceName.TabIndex = 3;
@@ -332,14 +332,14 @@
             this.tabPageSensors.Location = new System.Drawing.Point(4, 25);
             this.tabPageSensors.Name = "tabPageSensors";
             this.tabPageSensors.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSensors.Size = new System.Drawing.Size(640, 628);
+            this.tabPageSensors.Size = new System.Drawing.Size(640, 758);
             this.tabPageSensors.TabIndex = 1;
             this.tabPageSensors.Text = "Уставки датчиков";
             // 
             // btnBackToTab2
             // 
             this.btnBackToTab2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnBackToTab2.Location = new System.Drawing.Point(77, 548);
+            this.btnBackToTab2.Location = new System.Drawing.Point(76, 689);
             this.btnBackToTab2.Name = "btnBackToTab2";
             this.btnBackToTab2.Size = new System.Drawing.Size(126, 45);
             this.btnBackToTab2.TabIndex = 27;
@@ -350,7 +350,7 @@
             // btnFinishConfig
             // 
             this.btnFinishConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnFinishConfig.Location = new System.Drawing.Point(249, 549);
+            this.btnFinishConfig.Location = new System.Drawing.Point(243, 689);
             this.btnFinishConfig.Name = "btnFinishConfig";
             this.btnFinishConfig.Size = new System.Drawing.Size(310, 43);
             this.btnFinishConfig.TabIndex = 26;
@@ -361,7 +361,7 @@
             // txtbxFourthDevSensorMinRes
             // 
             this.txtbxFourthDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtbxFourthDevSensorMinRes.Location = new System.Drawing.Point(59, 477);
+            this.txtbxFourthDevSensorMinRes.Location = new System.Drawing.Point(60, 608);
             this.txtbxFourthDevSensorMinRes.Name = "txtbxFourthDevSensorMinRes";
             this.txtbxFourthDevSensorMinRes.Size = new System.Drawing.Size(144, 29);
             this.txtbxFourthDevSensorMinRes.TabIndex = 25;
@@ -373,27 +373,27 @@
             // 
             this.lblFourthDevSensorMaxRes.AutoSize = true;
             this.lblFourthDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFourthDevSensorMaxRes.Location = new System.Drawing.Point(319, 440);
+            this.lblFourthDevSensorMaxRes.Location = new System.Drawing.Point(320, 549);
             this.lblFourthDevSensorMaxRes.Name = "lblFourthDevSensorMaxRes";
-            this.lblFourthDevSensorMaxRes.Size = new System.Drawing.Size(220, 24);
+            this.lblFourthDevSensorMaxRes.Size = new System.Drawing.Size(191, 48);
             this.lblFourthDevSensorMaxRes.TabIndex = 24;
-            this.lblFourthDevSensorMaxRes.Text = "Верхняя граница, кОм :";
+            this.lblFourthDevSensorMaxRes.Text = "Предварительная \r\nсигнализация, кОм :";
             // 
             // lblFourthDevSensorMinRes
             // 
             this.lblFourthDevSensorMinRes.AutoSize = true;
             this.lblFourthDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFourthDevSensorMinRes.Location = new System.Drawing.Point(55, 439);
+            this.lblFourthDevSensorMinRes.Location = new System.Drawing.Point(56, 548);
             this.lblFourthDevSensorMinRes.Name = "lblFourthDevSensorMinRes";
-            this.lblFourthDevSensorMinRes.Size = new System.Drawing.Size(214, 24);
+            this.lblFourthDevSensorMinRes.Size = new System.Drawing.Size(191, 48);
             this.lblFourthDevSensorMinRes.TabIndex = 23;
-            this.lblFourthDevSensorMinRes.Text = "Нижняя граница, кОм :";
+            this.lblFourthDevSensorMinRes.Text = "Аварийная \r\nсигнализация, кОм :";
             // 
             // lblInfoForFourthDevice
             // 
             this.lblInfoForFourthDevice.AutoSize = true;
             this.lblInfoForFourthDevice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblInfoForFourthDevice.Location = new System.Drawing.Point(55, 406);
+            this.lblInfoForFourthDevice.Location = new System.Drawing.Point(56, 511);
             this.lblInfoForFourthDevice.Name = "lblInfoForFourthDevice";
             this.lblInfoForFourthDevice.Size = new System.Drawing.Size(209, 24);
             this.lblInfoForFourthDevice.TabIndex = 22;
@@ -402,7 +402,7 @@
             // txtbxFourthDevSensorMaxRes
             // 
             this.txtbxFourthDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtbxFourthDevSensorMaxRes.Location = new System.Drawing.Point(323, 478);
+            this.txtbxFourthDevSensorMaxRes.Location = new System.Drawing.Point(324, 608);
             this.txtbxFourthDevSensorMaxRes.Name = "txtbxFourthDevSensorMaxRes";
             this.txtbxFourthDevSensorMaxRes.Size = new System.Drawing.Size(144, 29);
             this.txtbxFourthDevSensorMaxRes.TabIndex = 21;
@@ -413,7 +413,7 @@
             // txtbxThirdDevSensorMinRes
             // 
             this.txtbxThirdDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtbxThirdDevSensorMinRes.Location = new System.Drawing.Point(59, 345);
+            this.txtbxThirdDevSensorMinRes.Location = new System.Drawing.Point(61, 449);
             this.txtbxThirdDevSensorMinRes.Name = "txtbxThirdDevSensorMinRes";
             this.txtbxThirdDevSensorMinRes.Size = new System.Drawing.Size(144, 29);
             this.txtbxThirdDevSensorMinRes.TabIndex = 20;
@@ -425,27 +425,27 @@
             // 
             this.lblThirdDevSensorMaxRes.AutoSize = true;
             this.lblThirdDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblThirdDevSensorMaxRes.Location = new System.Drawing.Point(319, 312);
+            this.lblThirdDevSensorMaxRes.Location = new System.Drawing.Point(320, 388);
             this.lblThirdDevSensorMaxRes.Name = "lblThirdDevSensorMaxRes";
-            this.lblThirdDevSensorMaxRes.Size = new System.Drawing.Size(220, 24);
+            this.lblThirdDevSensorMaxRes.Size = new System.Drawing.Size(191, 48);
             this.lblThirdDevSensorMaxRes.TabIndex = 19;
-            this.lblThirdDevSensorMaxRes.Text = "Верхняя граница, кОм :";
+            this.lblThirdDevSensorMaxRes.Text = "Предварительная \r\nсигнализация, кОм :\r\n";
             // 
             // lblThirdDevSensorMinRes
             // 
             this.lblThirdDevSensorMinRes.AutoSize = true;
             this.lblThirdDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblThirdDevSensorMinRes.Location = new System.Drawing.Point(55, 311);
+            this.lblThirdDevSensorMinRes.Location = new System.Drawing.Point(57, 388);
             this.lblThirdDevSensorMinRes.Name = "lblThirdDevSensorMinRes";
-            this.lblThirdDevSensorMinRes.Size = new System.Drawing.Size(214, 24);
+            this.lblThirdDevSensorMinRes.Size = new System.Drawing.Size(191, 48);
             this.lblThirdDevSensorMinRes.TabIndex = 18;
-            this.lblThirdDevSensorMinRes.Text = "Нижняя граница, кОм :";
+            this.lblThirdDevSensorMinRes.Text = "Аварийная \r\nсигнализация, кОм :\r\n";
             // 
             // lblInfoForThirdDevice
             // 
             this.lblInfoForThirdDevice.AutoSize = true;
             this.lblInfoForThirdDevice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblInfoForThirdDevice.Location = new System.Drawing.Point(55, 278);
+            this.lblInfoForThirdDevice.Location = new System.Drawing.Point(57, 350);
             this.lblInfoForThirdDevice.Name = "lblInfoForThirdDevice";
             this.lblInfoForThirdDevice.Size = new System.Drawing.Size(214, 24);
             this.lblInfoForThirdDevice.TabIndex = 17;
@@ -454,7 +454,7 @@
             // txtbxThirdDevSensorMaxRes
             // 
             this.txtbxThirdDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtbxThirdDevSensorMaxRes.Location = new System.Drawing.Point(323, 346);
+            this.txtbxThirdDevSensorMaxRes.Location = new System.Drawing.Point(324, 449);
             this.txtbxThirdDevSensorMaxRes.Name = "txtbxThirdDevSensorMaxRes";
             this.txtbxThirdDevSensorMaxRes.Size = new System.Drawing.Size(144, 29);
             this.txtbxThirdDevSensorMaxRes.TabIndex = 16;
@@ -465,7 +465,7 @@
             // txtbxSecondDevSensorMinRes
             // 
             this.txtbxSecondDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtbxSecondDevSensorMinRes.Location = new System.Drawing.Point(59, 216);
+            this.txtbxSecondDevSensorMinRes.Location = new System.Drawing.Point(60, 286);
             this.txtbxSecondDevSensorMinRes.Name = "txtbxSecondDevSensorMinRes";
             this.txtbxSecondDevSensorMinRes.Size = new System.Drawing.Size(144, 29);
             this.txtbxSecondDevSensorMinRes.TabIndex = 15;
@@ -477,27 +477,27 @@
             // 
             this.lblSecondDevSensorMaxRes.AutoSize = true;
             this.lblSecondDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSecondDevSensorMaxRes.Location = new System.Drawing.Point(319, 181);
+            this.lblSecondDevSensorMaxRes.Location = new System.Drawing.Point(320, 222);
             this.lblSecondDevSensorMaxRes.Name = "lblSecondDevSensorMaxRes";
-            this.lblSecondDevSensorMaxRes.Size = new System.Drawing.Size(220, 24);
+            this.lblSecondDevSensorMaxRes.Size = new System.Drawing.Size(191, 48);
             this.lblSecondDevSensorMaxRes.TabIndex = 14;
-            this.lblSecondDevSensorMaxRes.Text = "Верхняя граница, кОм :";
+            this.lblSecondDevSensorMaxRes.Text = "Предварительная \r\nсигнализация, кОм :";
             // 
             // lblSecondDevSensorMinRes
             // 
             this.lblSecondDevSensorMinRes.AutoSize = true;
             this.lblSecondDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSecondDevSensorMinRes.Location = new System.Drawing.Point(55, 180);
+            this.lblSecondDevSensorMinRes.Location = new System.Drawing.Point(56, 222);
             this.lblSecondDevSensorMinRes.Name = "lblSecondDevSensorMinRes";
-            this.lblSecondDevSensorMinRes.Size = new System.Drawing.Size(214, 24);
+            this.lblSecondDevSensorMinRes.Size = new System.Drawing.Size(191, 48);
             this.lblSecondDevSensorMinRes.TabIndex = 13;
-            this.lblSecondDevSensorMinRes.Text = "Нижняя граница, кОм :";
+            this.lblSecondDevSensorMinRes.Text = "Аварийная \r\nсигнализация, кОм :";
             // 
             // lblInfoForSecondDevice
             // 
             this.lblInfoForSecondDevice.AutoSize = true;
             this.lblInfoForSecondDevice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblInfoForSecondDevice.Location = new System.Drawing.Point(55, 147);
+            this.lblInfoForSecondDevice.Location = new System.Drawing.Point(56, 186);
             this.lblInfoForSecondDevice.Name = "lblInfoForSecondDevice";
             this.lblInfoForSecondDevice.Size = new System.Drawing.Size(209, 24);
             this.lblInfoForSecondDevice.TabIndex = 12;
@@ -506,7 +506,7 @@
             // txtbxSecondDevSensorMaxRes
             // 
             this.txtbxSecondDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtbxSecondDevSensorMaxRes.Location = new System.Drawing.Point(323, 217);
+            this.txtbxSecondDevSensorMaxRes.Location = new System.Drawing.Point(324, 286);
             this.txtbxSecondDevSensorMaxRes.Name = "txtbxSecondDevSensorMaxRes";
             this.txtbxSecondDevSensorMaxRes.Size = new System.Drawing.Size(144, 29);
             this.txtbxSecondDevSensorMaxRes.TabIndex = 11;
@@ -517,7 +517,7 @@
             // txtbxFirstDevSensorMaxRes
             // 
             this.txtbxFirstDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtbxFirstDevSensorMaxRes.Location = new System.Drawing.Point(323, 93);
+            this.txtbxFirstDevSensorMaxRes.Location = new System.Drawing.Point(324, 128);
             this.txtbxFirstDevSensorMaxRes.Name = "txtbxFirstDevSensorMaxRes";
             this.txtbxFirstDevSensorMaxRes.Size = new System.Drawing.Size(144, 29);
             this.txtbxFirstDevSensorMaxRes.TabIndex = 10;
@@ -529,27 +529,27 @@
             // 
             this.lblFirstDevSensorMaxRes.AutoSize = true;
             this.lblFirstDevSensorMaxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFirstDevSensorMaxRes.Location = new System.Drawing.Point(319, 61);
+            this.lblFirstDevSensorMaxRes.Location = new System.Drawing.Point(320, 68);
             this.lblFirstDevSensorMaxRes.Name = "lblFirstDevSensorMaxRes";
-            this.lblFirstDevSensorMaxRes.Size = new System.Drawing.Size(220, 24);
+            this.lblFirstDevSensorMaxRes.Size = new System.Drawing.Size(191, 48);
             this.lblFirstDevSensorMaxRes.TabIndex = 3;
-            this.lblFirstDevSensorMaxRes.Text = "Верхняя граница, кОм :";
+            this.lblFirstDevSensorMaxRes.Text = "Предварительная \r\nсигнализация, кОм :";
             // 
             // lblFirstDevSensorMinRes
             // 
             this.lblFirstDevSensorMinRes.AutoSize = true;
             this.lblFirstDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFirstDevSensorMinRes.Location = new System.Drawing.Point(55, 60);
+            this.lblFirstDevSensorMinRes.Location = new System.Drawing.Point(56, 68);
             this.lblFirstDevSensorMinRes.Name = "lblFirstDevSensorMinRes";
-            this.lblFirstDevSensorMinRes.Size = new System.Drawing.Size(214, 24);
+            this.lblFirstDevSensorMinRes.Size = new System.Drawing.Size(191, 48);
             this.lblFirstDevSensorMinRes.TabIndex = 2;
-            this.lblFirstDevSensorMinRes.Text = "Нижняя граница, кОм :";
+            this.lblFirstDevSensorMinRes.Text = "Аварийная \r\nсигнализация, кОм :";
             // 
             // lblInfoForFirstDevice
             // 
             this.lblInfoForFirstDevice.AutoSize = true;
             this.lblInfoForFirstDevice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblInfoForFirstDevice.Location = new System.Drawing.Point(55, 27);
+            this.lblInfoForFirstDevice.Location = new System.Drawing.Point(56, 33);
             this.lblInfoForFirstDevice.Name = "lblInfoForFirstDevice";
             this.lblInfoForFirstDevice.Size = new System.Drawing.Size(209, 24);
             this.lblInfoForFirstDevice.TabIndex = 1;
@@ -558,7 +558,7 @@
             // txtbxFirstDevSensorMinRes
             // 
             this.txtbxFirstDevSensorMinRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtbxFirstDevSensorMinRes.Location = new System.Drawing.Point(59, 92);
+            this.txtbxFirstDevSensorMinRes.Location = new System.Drawing.Point(60, 128);
             this.txtbxFirstDevSensorMinRes.Name = "txtbxFirstDevSensorMinRes";
             this.txtbxFirstDevSensorMinRes.Size = new System.Drawing.Size(144, 29);
             this.txtbxFirstDevSensorMinRes.TabIndex = 0;
@@ -570,7 +570,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 651);
+            this.ClientSize = new System.Drawing.Size(639, 785);
             this.Controls.Add(this.tabControlConfig);
             this.Name = "ConfigFilesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

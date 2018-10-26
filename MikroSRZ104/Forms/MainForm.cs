@@ -15,6 +15,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using MikroSRZ104.Controls;
+using System.Timers;
 
 namespace MikroSRZ104
 {
@@ -44,6 +45,8 @@ namespace MikroSRZ104
         Thread workerThread = null;
         //
         bool stopThread = false;
+
+        public System.Timers.Timer connectTimer;
 
         public MainForm()
         {
@@ -145,7 +148,7 @@ namespace MikroSRZ104
                                                     break;
                                             }
 
-                                            Array.Clear(sensorInfo, 0, sensorInfo.Length);                                            
+                                            Array.Clear(sensorInfo, 0, sensorInfo.Length);
                                             break;
                                     }
 
@@ -179,9 +182,11 @@ namespace MikroSRZ104
 
                 workerThread = new Thread(ConnectCycle);
                 workerThread.Start();
+
             }
 
         }
+
 
         public void ConnectCycle()
         {
@@ -207,10 +212,8 @@ namespace MikroSRZ104
                 {
                     break;
                 }
-                else
-                {
-                    Thread.Sleep(5000);
-                }
+
+                Thread.Sleep(5000);
             }
         }
 

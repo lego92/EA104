@@ -50,117 +50,121 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.LEDDevErr = new MfgControl.AdvancedHMI.Controls.SimpleLED();
             this.lblTextMalfunction = new System.Windows.Forms.Label();
+            this.lblDivider2 = new System.Windows.Forms.Label();
+            this.lblDivider1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblName.Location = new System.Drawing.Point(158, 33);
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblName.Location = new System.Drawing.Point(184, 36);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(133, 20);
+            this.lblName.Size = new System.Drawing.Size(162, 25);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Название ЩПТ";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblValueVoltage
             // 
-            this.lblValueVoltage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblValueVoltage.Location = new System.Drawing.Point(177, 149);
+            this.lblValueVoltage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblValueVoltage.Location = new System.Drawing.Point(184, 193);
             this.lblValueVoltage.Name = "lblValueVoltage";
-            this.lblValueVoltage.Size = new System.Drawing.Size(196, 20);
+            this.lblValueVoltage.Size = new System.Drawing.Size(229, 20);
             this.lblValueVoltage.TabIndex = 1;
-            this.lblValueVoltage.Text = "Напряжение на шинах";
+            this.lblValueVoltage.Text = "Нет данных";
             this.lblValueVoltage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblValueNetworkResistance
             // 
-            this.lblValueNetworkResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblValueNetworkResistance.Location = new System.Drawing.Point(187, 310);
+            this.lblValueNetworkResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblValueNetworkResistance.Location = new System.Drawing.Point(159, 377);
             this.lblValueNetworkResistance.Name = "lblValueNetworkResistance";
-            this.lblValueNetworkResistance.Size = new System.Drawing.Size(186, 20);
+            this.lblValueNetworkResistance.Size = new System.Drawing.Size(254, 20);
             this.lblValueNetworkResistance.TabIndex = 2;
-            this.lblValueNetworkResistance.Text = "Сопротивление сети";
+            this.lblValueNetworkResistance.Text = "Нет данных";
             this.lblValueNetworkResistance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblValuePositiveResistance
             // 
-            this.lblValuePositiveResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblValuePositiveResistance.Location = new System.Drawing.Point(221, 202);
+            this.lblValuePositiveResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblValuePositiveResistance.Location = new System.Drawing.Point(231, 254);
             this.lblValuePositiveResistance.Name = "lblValuePositiveResistance";
-            this.lblValuePositiveResistance.Size = new System.Drawing.Size(152, 20);
+            this.lblValuePositiveResistance.Size = new System.Drawing.Size(182, 20);
             this.lblValuePositiveResistance.TabIndex = 3;
-            this.lblValuePositiveResistance.Text = "Сопротивление+";
+            this.lblValuePositiveResistance.Text = "Нет данных";
             this.lblValuePositiveResistance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTextNegativeResistance
             // 
-            this.lblTextNegativeResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTextNegativeResistance.Location = new System.Drawing.Point(225, 255);
+            this.lblTextNegativeResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblTextNegativeResistance.Location = new System.Drawing.Point(219, 315);
             this.lblTextNegativeResistance.Name = "lblTextNegativeResistance";
-            this.lblTextNegativeResistance.Size = new System.Drawing.Size(148, 20);
+            this.lblTextNegativeResistance.Size = new System.Drawing.Size(194, 20);
             this.lblTextNegativeResistance.TabIndex = 4;
-            this.lblTextNegativeResistance.Text = "Сопротивление-";
+            this.lblTextNegativeResistance.Text = "Нет данных";
             this.lblTextNegativeResistance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTextVoltage
             // 
             this.lblTextVoltage.AutoSize = true;
-            this.lblTextVoltage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTextVoltage.Location = new System.Drawing.Point(66, 149);
+            this.lblTextVoltage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTextVoltage.Location = new System.Drawing.Point(64, 191);
             this.lblTextVoltage.Name = "lblTextVoltage";
-            this.lblTextVoltage.Size = new System.Drawing.Size(54, 20);
+            this.lblTextVoltage.Size = new System.Drawing.Size(59, 25);
             this.lblTextVoltage.TabIndex = 5;
-            this.lblTextVoltage.Text = "U, В :";
+            this.lblTextVoltage.Text = "U, В ";
             // 
             // lblValueCapacitance
             // 
-            this.lblValueCapacitance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblValueCapacitance.Location = new System.Drawing.Point(243, 363);
+            this.lblValueCapacitance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblValueCapacitance.Location = new System.Drawing.Point(286, 441);
             this.lblValueCapacitance.Name = "lblValueCapacitance";
             this.lblValueCapacitance.Size = new System.Drawing.Size(129, 20);
             this.lblValueCapacitance.TabIndex = 6;
-            this.lblValueCapacitance.Text = "Емкость";
+            this.lblValueCapacitance.Text = "Нет данных";
             this.lblValueCapacitance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTextPositiveResistance
             // 
             this.lblTextPositiveResistance.AutoSize = true;
-            this.lblTextPositiveResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTextPositiveResistance.Location = new System.Drawing.Point(66, 202);
+            this.lblTextPositiveResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTextPositiveResistance.Location = new System.Drawing.Point(64, 250);
             this.lblTextPositiveResistance.Name = "lblTextPositiveResistance";
-            this.lblTextPositiveResistance.Size = new System.Drawing.Size(96, 20);
+            this.lblTextPositiveResistance.Size = new System.Drawing.Size(111, 25);
             this.lblTextPositiveResistance.TabIndex = 7;
-            this.lblTextPositiveResistance.Text = "R + , кОм :";
+            this.lblTextPositiveResistance.Text = "R + , кОм ";
             // 
             // lblValueNegativeResistance
             // 
             this.lblValueNegativeResistance.AutoSize = true;
-            this.lblValueNegativeResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblValueNegativeResistance.Location = new System.Drawing.Point(66, 255);
+            this.lblValueNegativeResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblValueNegativeResistance.Location = new System.Drawing.Point(64, 311);
             this.lblValueNegativeResistance.Name = "lblValueNegativeResistance";
-            this.lblValueNegativeResistance.Size = new System.Drawing.Size(92, 20);
+            this.lblValueNegativeResistance.Size = new System.Drawing.Size(106, 25);
             this.lblValueNegativeResistance.TabIndex = 8;
-            this.lblValueNegativeResistance.Text = "R - , кОм :";
+            this.lblValueNegativeResistance.Text = "R - , кОм ";
             // 
             // lblTextNetworkResistance
             // 
             this.lblTextNetworkResistance.AutoSize = true;
-            this.lblTextNetworkResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTextNetworkResistance.Location = new System.Drawing.Point(66, 310);
+            this.lblTextNetworkResistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblTextNetworkResistance.Location = new System.Drawing.Point(64, 373);
             this.lblTextNetworkResistance.Name = "lblTextNetworkResistance";
-            this.lblTextNetworkResistance.Size = new System.Drawing.Size(125, 20);
+            this.lblTextNetworkResistance.Size = new System.Drawing.Size(144, 25);
             this.lblTextNetworkResistance.TabIndex = 9;
-            this.lblTextNetworkResistance.Text = "R сети , кОм :";
+            this.lblTextNetworkResistance.Text = "R сети , кОм ";
             // 
             // lblTextCapacitance
             // 
             this.lblTextCapacitance.AutoSize = true;
-            this.lblTextCapacitance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTextCapacitance.Location = new System.Drawing.Point(66, 363);
+            this.lblTextCapacitance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblTextCapacitance.Location = new System.Drawing.Point(64, 437);
             this.lblTextCapacitance.Name = "lblTextCapacitance";
-            this.lblTextCapacitance.Size = new System.Drawing.Size(132, 20);
+            this.lblTextCapacitance.Size = new System.Drawing.Size(152, 25);
             this.lblTextCapacitance.TabIndex = 10;
-            this.lblTextCapacitance.Text = "C сети , мкФ  :";
+            this.lblTextCapacitance.Text = "C сети , мкФ  ";
             // 
             // LEDIsCommunicationError
             // 
@@ -168,53 +172,54 @@
             this.LEDIsCommunicationError.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LEDIsCommunicationError.LED_Brightness = MfgControl.AdvancedHMI.Controls.SimpleLED.LED_Bri.Brighter;
             this.LEDIsCommunicationError.LED_Color = MfgControl.AdvancedHMI.Controls.SimpleLED.LED_Col.White;
-            this.LEDIsCommunicationError.Location = new System.Drawing.Point(338, 470);
+            this.LEDIsCommunicationError.Location = new System.Drawing.Point(368, 601);
             this.LEDIsCommunicationError.MaximumSize = new System.Drawing.Size(360, 360);
             this.LEDIsCommunicationError.MinimumSize = new System.Drawing.Size(30, 30);
             this.LEDIsCommunicationError.Name = "LEDIsCommunicationError";
-            this.LEDIsCommunicationError.Size = new System.Drawing.Size(34, 34);
+            this.LEDIsCommunicationError.Size = new System.Drawing.Size(42, 42);
             this.LEDIsCommunicationError.TabIndex = 11;
+            this.LEDIsCommunicationError.Value = true;
             // 
             // lblStatusText
             // 
             this.lblStatusText.AutoSize = true;
-            this.lblStatusText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblStatusText.Location = new System.Drawing.Point(66, 90);
+            this.lblStatusText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblStatusText.Location = new System.Drawing.Point(47, 107);
             this.lblStatusText.Name = "lblStatusText";
-            this.lblStatusText.Size = new System.Drawing.Size(193, 20);
+            this.lblStatusText.Size = new System.Drawing.Size(211, 25);
             this.lblStatusText.TabIndex = 12;
-            this.lblStatusText.Text = "Статус подключения:";
+            this.lblStatusText.Text = "Статус соединения:";
             // 
             // lblStatusValue
             // 
-            this.lblStatusValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblStatusValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblStatusValue.ForeColor = System.Drawing.Color.Red;
-            this.lblStatusValue.Location = new System.Drawing.Point(272, 90);
+            this.lblStatusValue.Location = new System.Drawing.Point(252, 109);
             this.lblStatusValue.Name = "lblStatusValue";
-            this.lblStatusValue.Size = new System.Drawing.Size(101, 20);
+            this.lblStatusValue.Size = new System.Drawing.Size(173, 21);
             this.lblStatusValue.TabIndex = 13;
-            this.lblStatusValue.Text = "Неактивно";
+            this.lblStatusValue.Text = "Не подключено";
             this.lblStatusValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTextGroundFault
             // 
             this.lblTextGroundFault.AutoSize = true;
-            this.lblTextGroundFault.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTextGroundFault.Location = new System.Drawing.Point(66, 426);
+            this.lblTextGroundFault.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblTextGroundFault.Location = new System.Drawing.Point(64, 537);
             this.lblTextGroundFault.Name = "lblTextGroundFault";
-            this.lblTextGroundFault.Size = new System.Drawing.Size(123, 20);
+            this.lblTextGroundFault.Size = new System.Drawing.Size(143, 25);
             this.lblTextGroundFault.TabIndex = 14;
             this.lblTextGroundFault.Text = "Земля в сети";
             // 
             // lblTextSensorError
             // 
             this.lblTextSensorError.AutoSize = true;
-            this.lblTextSensorError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTextSensorError.Location = new System.Drawing.Point(66, 484);
+            this.lblTextSensorError.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblTextSensorError.Location = new System.Drawing.Point(64, 610);
             this.lblTextSensorError.Name = "lblTextSensorError";
-            this.lblTextSensorError.Size = new System.Drawing.Size(230, 20);
+            this.lblTextSensorError.Size = new System.Drawing.Size(294, 25);
             this.lblTextSensorError.TabIndex = 15;
-            this.lblTextSensorError.Text = "Ошибка связи с датчиком";
+            this.lblTextSensorError.Text = "Нарушена связь с датчиком";
             // 
             // LEDGroundAlarm
             // 
@@ -222,19 +227,20 @@
             this.LEDGroundAlarm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LEDGroundAlarm.LED_Brightness = MfgControl.AdvancedHMI.Controls.SimpleLED.LED_Bri.Brighter;
             this.LEDGroundAlarm.LED_Color = MfgControl.AdvancedHMI.Controls.SimpleLED.LED_Col.White;
-            this.LEDGroundAlarm.Location = new System.Drawing.Point(338, 412);
+            this.LEDGroundAlarm.Location = new System.Drawing.Point(368, 528);
             this.LEDGroundAlarm.MaximumSize = new System.Drawing.Size(360, 360);
             this.LEDGroundAlarm.MinimumSize = new System.Drawing.Size(30, 30);
             this.LEDGroundAlarm.Name = "LEDGroundAlarm";
-            this.LEDGroundAlarm.Size = new System.Drawing.Size(34, 34);
+            this.LEDGroundAlarm.Size = new System.Drawing.Size(42, 42);
             this.LEDGroundAlarm.TabIndex = 16;
+            this.LEDGroundAlarm.Value = true;
             // 
             // btnToSensorsInfoList
             // 
-            this.btnToSensorsInfoList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnToSensorsInfoList.Location = new System.Drawing.Point(144, 616);
+            this.btnToSensorsInfoList.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.btnToSensorsInfoList.Location = new System.Drawing.Point(130, 772);
             this.btnToSensorsInfoList.Name = "btnToSensorsInfoList";
-            this.btnToSensorsInfoList.Size = new System.Drawing.Size(171, 42);
+            this.btnToSensorsInfoList.Size = new System.Drawing.Size(216, 56);
             this.btnToSensorsInfoList.TabIndex = 17;
             this.btnToSensorsInfoList.Text = "К списку датчиков";
             this.btnToSensorsInfoList.UseVisualStyleBackColor = true;
@@ -246,28 +252,59 @@
             this.LEDDevErr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LEDDevErr.LED_Brightness = MfgControl.AdvancedHMI.Controls.SimpleLED.LED_Bri.Brighter;
             this.LEDDevErr.LED_Color = MfgControl.AdvancedHMI.Controls.SimpleLED.LED_Col.White;
-            this.LEDDevErr.Location = new System.Drawing.Point(339, 529);
+            this.LEDDevErr.Location = new System.Drawing.Point(368, 669);
             this.LEDDevErr.MaximumSize = new System.Drawing.Size(360, 360);
             this.LEDDevErr.MinimumSize = new System.Drawing.Size(30, 30);
             this.LEDDevErr.Name = "LEDDevErr";
-            this.LEDDevErr.Size = new System.Drawing.Size(33, 33);
+            this.LEDDevErr.Size = new System.Drawing.Size(42, 42);
             this.LEDDevErr.TabIndex = 18;
+            this.LEDDevErr.Value = true;
             // 
             // lblTextMalfunction
             // 
             this.lblTextMalfunction.AutoSize = true;
-            this.lblTextMalfunction.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTextMalfunction.Location = new System.Drawing.Point(66, 542);
+            this.lblTextMalfunction.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblTextMalfunction.Location = new System.Drawing.Point(64, 678);
             this.lblTextMalfunction.Name = "lblTextMalfunction";
-            this.lblTextMalfunction.Size = new System.Drawing.Size(140, 20);
+            this.lblTextMalfunction.Size = new System.Drawing.Size(165, 25);
             this.lblTextMalfunction.TabIndex = 19;
             this.lblTextMalfunction.Text = "Неисправность";
+            // 
+            // lblDivider2
+            // 
+            this.lblDivider2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblDivider2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblDivider2.Location = new System.Drawing.Point(0, 492);
+            this.lblDivider2.Name = "lblDivider2";
+            this.lblDivider2.Size = new System.Drawing.Size(467, 2);
+            this.lblDivider2.TabIndex = 22;
+            // 
+            // lblDivider1
+            // 
+            this.lblDivider1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblDivider1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblDivider1.Location = new System.Drawing.Point(0, 165);
+            this.lblDivider1.Name = "lblDivider1";
+            this.lblDivider1.Size = new System.Drawing.Size(467, 2);
+            this.lblDivider1.TabIndex = 23;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Location = new System.Drawing.Point(0, 749);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(467, 2);
+            this.label3.TabIndex = 24;
             // 
             // MiniPageMikroSRZ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblDivider1);
+            this.Controls.Add(this.lblDivider2);
             this.Controls.Add(this.lblTextMalfunction);
             this.Controls.Add(this.LEDDevErr);
             this.Controls.Add(this.btnToSensorsInfoList);
@@ -289,7 +326,7 @@
             this.Controls.Add(this.lblValueVoltage);
             this.Controls.Add(this.lblName);
             this.Name = "MiniPageMikroSRZ";
-            this.Size = new System.Drawing.Size(465, 684);
+            this.Size = new System.Drawing.Size(469, 852);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,5 +355,8 @@
         private System.Windows.Forms.Timer timer1;
         private MfgControl.AdvancedHMI.Controls.SimpleLED LEDDevErr;
         private System.Windows.Forms.Label lblTextMalfunction;
+        private System.Windows.Forms.Label lblDivider2;
+        private System.Windows.Forms.Label lblDivider1;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -104,10 +104,10 @@ namespace MikroSRZ104
                     switch ((bool)value)
                     {
                         case true:
-                            LabelUpdater(lblStatusValue, "Активно", Color.Green);
+                            LabelUpdater(lblStatusValue, "Подключено", Color.Green);
                             break;
                         case false:
-                            LabelUpdater(lblStatusValue, "Неактивно", Color.Red);
+                            LabelUpdater(lblStatusValue, "Не подключено", Color.Red);
                             break;
                     }
                     break;
@@ -122,11 +122,14 @@ namespace MikroSRZ104
 
 
         private void LabelUpdater(Label label, string labelstr, Color color)
-        {
+        {           
             if (label.InvokeRequired)
             {
                 LabelUpdaterDelegate d = new LabelUpdaterDelegate(LabelUpdater);
-                this.Invoke(d, new object[] { label, labelstr, color });
+
+
+                
+                this.BeginInvoke(d, new object[] { label, labelstr, color });
             }
             else
             {
@@ -140,7 +143,7 @@ namespace MikroSRZ104
             if (led.InvokeRequired)
             {
                 LEDUpdaterDelegate d = new LEDUpdaterDelegate(LEDUpdater);
-                this.Invoke(d, new object[] { led, value });
+                this.BeginInvoke(d, new object[] { led, value });
             }
             else
             {
@@ -152,7 +155,7 @@ namespace MikroSRZ104
                 {
                     led.LED_Color = SimpleLED.LED_Col.White;
                 }
-                led.Value = value;
+                led.Value = true;
             }
         }
 

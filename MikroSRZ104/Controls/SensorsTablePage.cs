@@ -11,9 +11,9 @@ namespace MikroSRZ104.Controls
 {
     public partial class SensorsTablePage : UserControl
     {
-        double[] thresholdSensorsMinResistance;
+        double[] thresholdSensorsAlarmResistance;
 
-        double[] thresholdSensorsMaxResistance;
+        double[] thresholdSensorsPrelimResistance;
 
         public SensorsTablePage(Sensor[] sensors)
         {
@@ -23,9 +23,9 @@ namespace MikroSRZ104.Controls
 
             this.Enabled = false;
 
-            thresholdSensorsMinResistance = new double[sensors.Length];
+            thresholdSensorsAlarmResistance = new double[sensors.Length];
 
-            thresholdSensorsMaxResistance = new double[sensors.Length];
+            thresholdSensorsPrelimResistance = new double[sensors.Length];
 
             for (int i = 0; i < sensors.Length; i++)
             {
@@ -34,8 +34,8 @@ namespace MikroSRZ104.Controls
                 dataGridView1.Rows[i].Cells["sensorFacNumber"].Value = sensors[i].FactoryNumber;
                 dataGridView1.Rows[i].Cells["sensorSwitchDevice"].Value = sensors[i].SwitchingDevice;
                 dataGridView1.Rows[i].Cells["sensorCircuitLoad"].Value = sensors[i].CircuitLoad;
-                thresholdSensorsMinResistance[i] = sensors[i].ThresholdMinResistance;
-                thresholdSensorsMaxResistance[i] = sensors[i].ThresholdMaxResistance;
+                thresholdSensorsAlarmResistance[i] = sensors[i].ThresholdAlarmResistance;
+                thresholdSensorsPrelimResistance[i] = sensors[i].ThresholdPrelimResistance;
             }
         }
 
@@ -46,14 +46,22 @@ namespace MikroSRZ104.Controls
             {
                 case "Resistance":
 
-                    if ((double)value > thresholdSensorsMinResistance[number - 1])
+                    if ((double)value > 30)
                     {
-                        dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = "Норма";
+                        dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = "> 30 кОм";
+                        dataGridView1.Rows[number - 1].Cells["sensorResistance"].Style.BackColor = Color.White;
                     }
-                    else
+                    else if ((double)value < thresholdSensorsPrelimResistance[number - 1])
                     {
                         dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = Math.Round((double)value, 3);
+                        dataGridView1.Rows[number - 1].Cells["sensorResistance"].Style.BackColor = Color.Yellow;
                     }
+                    else if ((double)value < thresholdSensorsAlarmResistance[number - 1])
+                    {
+                        dataGridView1.Rows[number - 1].Cells["sensorResistance"].Value = Math.Round((double)value, 3);
+                        dataGridView1.Rows[number - 1].Cells["sensorResistance"].Style.BackColor = Color.Orange;
+                    }
+
                     break;
 
                 case "IsCommunicationError":
@@ -61,7 +69,7 @@ namespace MikroSRZ104.Controls
                     if ((bool)value == true)
                     {
                         dataGridView1.Rows[number - 1].Cells["sensorComErr"].Style.BackColor = Color.Orange;
-                        dataGridView1.Rows[number - 1].Cells["sensorComErr"].Value = "Ошибка";
+                        dataGridView1.Rows[number - 1].Cells["sensorComErr"].Value = "Нарушена";
                     }
                     else
                     {
@@ -91,13 +99,13 @@ namespace MikroSRZ104.Controls
             string isCalErr = (string)dataGridView1.Rows[number - 1].Cells["sensorCalcErr"].Value;
 
 
-            if (isComErr == "Ошибка" || isCalErr == "Ошибка")
+            if (isComErr == "Нарушена" )
             {
-                for (int i = 2; i < dataGridView1.Columns.Count; i++)
+                for (int i = 4; i < dataGridView1.Columns.Count; i++)
                 {
                     string val = dataGridView1.Columns[i].Name;
 
-                    if (val != "sensorComErr" && val != "sensorCalcErr")
+                    if (val != "sensorComErr")
                     {
                         dataGridView1.Rows[number - 1].Cells[i].Style.BackColor = Color.White;
                         dataGridView1.Rows[number - 1].Cells[i].Value = "-";
