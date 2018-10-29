@@ -227,6 +227,11 @@ namespace MikroSRZ104
                 item.Disconnect();
             }
 
+            while (workerThread.IsAlive)
+            {
+
+            }
+
             Application.Exit();
         }
     }
