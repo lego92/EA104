@@ -84,7 +84,7 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.RowTemplate.Height = 80;
             this.dataGridView1.RowTemplate.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1600, 657);
+            this.dataGridView1.Size = new System.Drawing.Size(1646, 657);
             this.dataGridView1.TabIndex = 2;
             // 
             // btnGoToMainForm
@@ -151,7 +151,7 @@
             this.sensorComErr.Name = "sensorComErr";
             this.sensorComErr.ReadOnly = true;
             this.sensorComErr.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.sensorComErr.Width = 170;
+            this.sensorComErr.Width = 200;
             // 
             // sensorCalcErr
             // 
