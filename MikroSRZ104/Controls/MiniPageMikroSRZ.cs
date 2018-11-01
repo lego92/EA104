@@ -105,9 +105,11 @@ namespace MikroSRZ104
                     {
                         case true:
                             LabelUpdater(lblStatusValue, "Подключено", Color.Green);
+                            ListBoxUpdater(listBox1, "Подключено");
                             break;
                         case false:
                             LabelUpdater(lblStatusValue, "Не подключено", Color.Red);
+                            ListBoxUpdater(listBox1, "Не подключено");
                             break;
                     }
                     break;
@@ -158,6 +160,22 @@ namespace MikroSRZ104
                 led.Value = true;
             }
         }
+
+        private void ListBoxUpdater(ListBox listBox, string value)
+        {
+            if (listBox.InvokeRequired)
+            {
+                ListBoxUpdaterDelegate d = new ListBoxUpdaterDelegate(ListBoxUpdater);
+                this.BeginInvoke(d, new object[] { listBox, value });
+            }
+            else
+            {
+                listBox.Items.Add(Convert.ToString(DateTime.Now));
+                listBox.Items.Add(value);
+            }
+        }
+
+
 
         private void btnToSensorsInfoList_Click(object sender, EventArgs e)
         {

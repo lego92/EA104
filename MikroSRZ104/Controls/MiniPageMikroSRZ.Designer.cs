@@ -53,6 +53,7 @@
             this.lblDivider2 = new System.Windows.Forms.Label();
             this.lblDivider1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lblName
@@ -297,11 +298,20 @@
             this.label3.Size = new System.Drawing.Size(467, 2);
             this.label3.TabIndex = 24;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(38, 508);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(276, 225);
+            this.listBox1.TabIndex = 25;
+            // 
             // MiniPageMikroSRZ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblDivider1);
             this.Controls.Add(this.lblDivider2);
@@ -358,5 +368,6 @@
         private System.Windows.Forms.Label lblDivider2;
         private System.Windows.Forms.Label lblDivider1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
