@@ -138,9 +138,12 @@ namespace MikroSRZ104
                                             switch (sensorInfo.Length)
                                             {
                                                 case 1:
+                                                    sensorSwitchDev = "-";
+                                                    sensorCircLoad = "-";
                                                     break;
                                                 case 2:
                                                     sensorSwitchDev = sensorInfo[1];
+                                                    sensorCircLoad = "-";
                                                     break;
                                                 case 3:
                                                     sensorSwitchDev = sensorInfo[1];
